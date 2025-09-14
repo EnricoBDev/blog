@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Prova on EnricoBDev's Blog</title><link>https://enricobdev.github.io/blog/prova/</link><description>Recent content in Prova on EnricoBDev's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 14 Sep 2025 19:27:32 +0000</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/prova/index.xml" rel="self" type="application/rss+xml"/><item><title>My First Post</title><link>https://enricobdev.github.io/blog/prova/prova/</link><pubDate>Sun, 14 Sep 2025 19:27:32 +0000</pubDate><guid>https://enricobdev.github.io/blog/prova/prova/</guid><description>&lt;h1 id="assembly-mips"&gt;Assembly MIPS&lt;/h1&gt;
-&lt;h2 id="struttura-di-un-file-assembly"&gt;Struttura di un file assembly&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prova on EnricoBDev&#39;s Blog</title>
+    <link>https://enricobdev.github.io/blog/prova/</link>
+    <description>Recent content in Prova on EnricoBDev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Sep 2025 19:27:32 +0000</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/prova/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My First Post</title>
+      <link>https://enricobdev.github.io/blog/prova/prova/</link>
+      <pubDate>Sun, 14 Sep 2025 19:27:32 +0000</pubDate>
+      
+      <guid>https://enricobdev.github.io/blog/prova/prova/</guid>
+      <description>&lt;h1 id=&#34;assembly-mips&#34;&gt;Assembly MIPS&lt;/h1&gt;
+&lt;h2 id=&#34;struttura-di-un-file-assembly&#34;&gt;Struttura di un file assembly&lt;/h2&gt;
 &lt;p&gt;Prima di entrare nel dettaglio dell&amp;rsquo;assembly MIPS dobbiamo parlare di come è organizzato un file sorgente assembly, ci sono varie porzioni:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;commenti, iniziano con il carattere &lt;code&gt;#&lt;/code&gt; e sono solo in linea&lt;/li&gt;
@@ -7,9 +22,10 @@
 &lt;li&gt;sezioni, dividono la parte del programma per i dati inizializzati, sezione &lt;code&gt;.data&lt;/code&gt;; la parte del programma per i dati non inizializzati, sezione &lt;code&gt;.bss&lt;/code&gt; e la parte del programma per le istruzioni, sezione &lt;code&gt;.text&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;direttive&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="dati-globali"&gt;Dati globali&lt;/h2&gt;
-&lt;p&gt;Come detto in precedenza i dati globali vengono dichiarati nella sezione &lt;code&gt;.data&lt;/code&gt;, il linguaggio ci offre varie direttive in base al dato che vogliamo memorizzare.&lt;/p&gt;</description><content>&lt;h1 id="assembly-mips"&gt;Assembly MIPS&lt;/h1&gt;
-&lt;h2 id="struttura-di-un-file-assembly"&gt;Struttura di un file assembly&lt;/h2&gt;
+&lt;h2 id=&#34;dati-globali&#34;&gt;Dati globali&lt;/h2&gt;
+&lt;p&gt;Come detto in precedenza i dati globali vengono dichiarati nella sezione &lt;code&gt;.data&lt;/code&gt;, il linguaggio ci offre varie direttive in base al dato che vogliamo memorizzare.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;assembly-mips&#34;&gt;Assembly MIPS&lt;/h1&gt;
+&lt;h2 id=&#34;struttura-di-un-file-assembly&#34;&gt;Struttura di un file assembly&lt;/h2&gt;
 &lt;p&gt;Prima di entrare nel dettaglio dell&amp;rsquo;assembly MIPS dobbiamo parlare di come è organizzato un file sorgente assembly, ci sono varie porzioni:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;commenti, iniziano con il carattere &lt;code&gt;#&lt;/code&gt; e sono solo in linea&lt;/li&gt;
@@ -17,70 +33,70 @@
 &lt;li&gt;sezioni, dividono la parte del programma per i dati inizializzati, sezione &lt;code&gt;.data&lt;/code&gt;; la parte del programma per i dati non inizializzati, sezione &lt;code&gt;.bss&lt;/code&gt; e la parte del programma per le istruzioni, sezione &lt;code&gt;.text&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;direttive&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="dati-globali"&gt;Dati globali&lt;/h2&gt;
+&lt;h2 id=&#34;dati-globali&#34;&gt;Dati globali&lt;/h2&gt;
 &lt;p&gt;Come detto in precedenza i dati globali vengono dichiarati nella sezione &lt;code&gt;.data&lt;/code&gt;, il linguaggio ci offre varie direttive in base al dato che vogliamo memorizzare.&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Direttiva&lt;/th&gt;
-&lt;th&gt;Grandezza&lt;/th&gt;
-&lt;th&gt;Dettagli&lt;/th&gt;
-&lt;th&gt;Esempio&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.byte&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;1 byte&lt;/td&gt;
-&lt;td&gt;Equivalente di char&lt;/td&gt;
-&lt;td&gt;char: .byte 60&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.half&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;2 byte&lt;/td&gt;
-&lt;td&gt;Equivalente di short&lt;/td&gt;
-&lt;td&gt;short: .half 10&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.word&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;4 byte&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;int: .word 420&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.float&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;4 byte&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;single: .float 0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.double&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;8 byte&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;long: .double 0.3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.asciiz&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Stringa con terminatore &lt;code&gt;\0&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;ciao: .asciiz &amp;ldquo;Ciao\0&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.ascii&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;Stringa senza terminatore&lt;/td&gt;
-&lt;td&gt;ciao: .ascii &amp;ldquo;Ciao&amp;rdquo;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;.space&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Specificata dal programmatore&lt;/td&gt;
-&lt;td&gt;Spazio vuoto&lt;/td&gt;
-&lt;td&gt;array: .space 100&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Direttiva&lt;/th&gt;
+          &lt;th&gt;Grandezza&lt;/th&gt;
+          &lt;th&gt;Dettagli&lt;/th&gt;
+          &lt;th&gt;Esempio&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.byte&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;1 byte&lt;/td&gt;
+          &lt;td&gt;Equivalente di char&lt;/td&gt;
+          &lt;td&gt;char: .byte 60&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.half&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;2 byte&lt;/td&gt;
+          &lt;td&gt;Equivalente di short&lt;/td&gt;
+          &lt;td&gt;short: .half 10&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.word&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;4 byte&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;int: .word 420&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.float&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;4 byte&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;single: .float 0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.double&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;8 byte&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;long: .double 0.3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.asciiz&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Stringa con terminatore &lt;code&gt;\0&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;ciao: .asciiz &amp;ldquo;Ciao\0&amp;rdquo;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.ascii&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;Stringa senza terminatore&lt;/td&gt;
+          &lt;td&gt;ciao: .ascii &amp;ldquo;Ciao&amp;rdquo;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;.space&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Specificata dal programmatore&lt;/td&gt;
+          &lt;td&gt;Spazio vuoto&lt;/td&gt;
+          &lt;td&gt;array: .space 100&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Come vediamo dagli esempi la sintassi per dichiarare variabili (tranne per &lt;code&gt;.space&lt;/code&gt;) è la seguente: &lt;code&gt;nome_variabile: .direttiva valore&lt;/code&gt;, per &lt;code&gt;.space&lt;/code&gt; invece al posto del valore inseriamo la quantità di byte da riservare, lo spazio riservato è contiguo in memoria&lt;/p&gt;
-&lt;h2 id="registri"&gt;Registri&lt;/h2&gt;
+&lt;h2 id=&#34;registri&#34;&gt;Registri&lt;/h2&gt;
 &lt;p&gt;Una parte fondamentale di una CPU sono i registri, essi sono una memoria super veloce implementata direttamente nel die, in un programma assembly possono essere considerati come una variabile, alcuni sono GPR (general purpose registers) mentre altri sono riservati o usati per operazioni specifiche, in totale nell&amp;rsquo;architettura MIPS sono presenti 32 registri.&lt;/p&gt;
 &lt;p&gt;In un programma assembly MIPS un registro viene indicato con &lt;code&gt;$registro&lt;/code&gt;, i registri sono:&lt;/p&gt;
 &lt;ul&gt;
@@ -95,7 +111,7 @@
 &lt;li&gt;&lt;code&gt;$fp&lt;/code&gt; frame pointer&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;$ra&lt;/code&gt; indirizzo di ritorno alla procedura chiamante&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="istruzioni-e-operandi"&gt;Istruzioni e operandi&lt;/h2&gt;
+&lt;h2 id=&#34;istruzioni-e-operandi&#34;&gt;Istruzioni e operandi&lt;/h2&gt;
 &lt;p&gt;Le istruzioni sono i mattoni che compongono il nostro programma, un istruzione è formata da due parti:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;codice mnemonico, un codice che indica l&amp;rsquo;istruzione da effettuare&lt;/li&gt;
@@ -109,18 +125,18 @@
 &lt;li&gt;Istruzioni di trasferimento dati&lt;/li&gt;
 &lt;li&gt;Istruzioni di logica di controllo&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="istruzioni-logico-aritmetiche"&gt;Istruzioni logico-aritmetiche&lt;/h3&gt;
+&lt;h3 id=&#34;istruzioni-logico-aritmetiche&#34;&gt;Istruzioni logico-aritmetiche&lt;/h3&gt;
 &lt;p&gt;Sono le operazioni più elementari e più utilizzate, come ci indica il nome ci permettono di effettuare operazioni aritmetiche (somma, sottrazione, moltiplicazione) e operazioni logiche (AND, OR), esempi includono:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;add $t0, $t1, $t2&lt;/code&gt;, effettua la somma tra &lt;code&gt;$t1&lt;/code&gt; e &lt;code&gt;$t2&lt;/code&gt; e la mette in &lt;code&gt;$t0&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;and $t0, $t1, $t2&lt;/code&gt;, effettua l&amp;rsquo;and bit a bit tra &lt;code&gt;$t1&lt;/code&gt; e &lt;code&gt;$t2&lt;/code&gt; e mette il risultato in &lt;code&gt;$t0&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="istruzioni-di-shift-logico"&gt;Istruzioni di shift logico&lt;/h3&gt;
+&lt;h3 id=&#34;istruzioni-di-shift-logico&#34;&gt;Istruzioni di shift logico&lt;/h3&gt;
 &lt;p&gt;Le istruzioni di shift logico possono essere considerate un sottoinsieme di quelle logico-aritmetiche, ci permettono di effettuare shift logico a destra &lt;code&gt;srl&lt;/code&gt; e shift a sinistra &lt;code&gt;sll&lt;/code&gt;, esse sono utili per fare moltiplicazioni e divisioni per 2 in un sistema binario, ad esempio:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;sll $t0, $t1, 2&lt;/code&gt;, effettua lo shift logico a sinistra di 2 posizioni di &lt;code&gt;$t1&lt;/code&gt; e inserisce il risultato in &lt;code&gt;$t0&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="istruzioni-di-trasferimento-dati"&gt;Istruzioni di trasferimento dati&lt;/h3&gt;
+&lt;h3 id=&#34;istruzioni-di-trasferimento-dati&#34;&gt;Istruzioni di trasferimento dati&lt;/h3&gt;
 &lt;p&gt;Le istruzioni di trasferimento dati sono istruzioni potenti che ci permettono di trasferire valori dalla/alla memoria RAM, sono importantissime poichè abbiamo solo 32 registri ed essi non bastano per memorizzare strutture dati come array o liste, le più comuni e utilizzate sono &lt;code&gt;$lw&lt;/code&gt; (load word) e &lt;code&gt;$sw&lt;/code&gt; (store word).&lt;/p&gt;
 &lt;p&gt;Apriamo una parentesi sull&amp;rsquo;indirizzamento, l&amp;rsquo;architettura MIPS utilizza word di 32 bit ed effettua l&amp;rsquo;indirizzo al singolo byte, quindi ogni word sta a distanza di 4 indirizzi dall&amp;rsquo;altra.&lt;/p&gt;
 &lt;p&gt;Alcuni esempi sono:&lt;/p&gt;
@@ -128,86 +144,88 @@
 &lt;li&gt;&lt;code&gt;lw $t0, 4($t1)&lt;/code&gt;, carica una word contenuta nell&amp;rsquo;indirizzo base &lt;code&gt;$t1&lt;/code&gt; offsettato di 4 byte nel registro $t0 (in parole povere l&amp;rsquo;indirizzo in memoria è dato da &lt;code&gt;$t1 + 4&lt;/code&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;sw $t0, 4($t1)&lt;/code&gt;, salva una word contenuta nel registro &lt;code&gt;$t0&lt;/code&gt; nell&amp;rsquo;indirizzo base &lt;code&gt;$t1&lt;/code&gt; offsettato di 4 byte (in parole povere l&amp;rsquo;indirizzo in memoria è dato da &lt;code&gt;$t1 + 4&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="istruzioni-di-logica-di-controllo"&gt;Istruzioni di logica di controllo&lt;/h3&gt;
+&lt;h3 id=&#34;istruzioni-di-logica-di-controllo&#34;&gt;Istruzioni di logica di controllo&lt;/h3&gt;
 &lt;p&gt;Le istruzioni di logica di controllo sono le istruzioni che differenziano un calcolatore elettronico moderno da una semplice calcolatrice, esse permettono di cambiare il flusso di esecuzione in base ad alcune condizioni, ad esempio:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;beq $t0, $t1, Else&lt;/code&gt; passa all&amp;rsquo;esecuzione del codice sotto l&amp;rsquo;etichetta &lt;code&gt;Else&lt;/code&gt; se i valori di &lt;code&gt;$t0&lt;/code&gt; e di &lt;code&gt;$t1&lt;/code&gt; sono uguali&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="operandi"&gt;Operandi&lt;/h3&gt;
+&lt;h3 id=&#34;operandi&#34;&gt;Operandi&lt;/h3&gt;
 &lt;p&gt;Nell&amp;rsquo;assembly MIPS sono presenti 2 tipi di operandi:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;registri&lt;/li&gt;
 &lt;li&gt;valori immediati, usati ad esempio nell&amp;rsquo;istruzione &lt;code&gt;addi $t0 $t1 1&lt;/code&gt; che fa la somma tra il contentuto di &lt;code&gt;$t1&lt;/code&gt; ed 1 e salva il valore in &lt;code&gt;$t0&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;A questo &lt;a href="https://it.wikiversity.org/wiki/ISA_e_Linguaggio_Assemby_MIPS#Istruzioni_MIPS"&gt;link&lt;/a&gt; è possibile trovare una tabella con tutte le istruzioni dell&amp;rsquo;assembly MIPS.&lt;/p&gt;
-&lt;h2 id="logica-condizionale-e-cicli"&gt;Logica condizionale e cicli&lt;/h2&gt;
+&lt;p&gt;A questo &lt;a href=&#34;https://it.wikiversity.org/wiki/ISA_e_Linguaggio_Assemby_MIPS#Istruzioni_MIPS&#34;&gt;link&lt;/a&gt; è possibile trovare una tabella con tutte le istruzioni dell&amp;rsquo;assembly MIPS.&lt;/p&gt;
+&lt;h2 id=&#34;logica-condizionale-e-cicli&#34;&gt;Logica condizionale e cicli&lt;/h2&gt;
 &lt;p&gt;Per costruire le condizioni il linguaggio ci permette l&amp;rsquo;utilizzo delle istruzioni di logica di controllo e alcune istruzioni di trasferimento dati condizionale, vediamo quali sono e come possiamo costruire i classici costrutti condizionali della programmazione combinandoli in vari modi.&lt;/p&gt;
 &lt;p&gt;Le istruzioni che useremo sono:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Codice mnemonico&lt;/th&gt;
-&lt;th&gt;Sintassi&lt;/th&gt;
-&lt;th&gt;Significato&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;beq&lt;/code&gt; (branch equal)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;beq $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Passa l&amp;rsquo;esecuzione all&amp;rsquo;etichetta Label se &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;$t1&lt;/code&gt; contengono lo stesso valore&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bne&lt;/code&gt; (branch not equal)*&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bne $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Passa l&amp;rsquo;esecuzione all&amp;rsquo;etichetta Label se &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;$t1&lt;/code&gt; contengono valori diversi&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;slt&lt;/code&gt; (set on less than)*&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;slt $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Imposta il registro &lt;code&gt;$s0&lt;/code&gt; a 1 se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt; (comparazione con numeri in complemento a 2)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;sltu&lt;/code&gt; (set on less than unsigned)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;sltu $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Imposta il registro &lt;code&gt;$s0&lt;/code&gt; a 1 se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt; (comparazione con numeri unsigned)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;j&lt;/code&gt; (jump)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;jump Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta all&amp;rsquo;etichetta &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;jr&lt;/code&gt; (jump register)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;jump $t0&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta all&amp;rsquo;indirizzo specificato nel registro &lt;code&gt;$t0&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;jal&lt;/code&gt; (jump and link)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;jal Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta all&amp;rsquo;etichetta &lt;code&gt;Label&lt;/code&gt; e salva in &lt;code&gt;$ra&lt;/code&gt; l&amp;rsquo;indirizzo di ritorno alla procedura chiamante&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Codice mnemonico&lt;/th&gt;
+          &lt;th&gt;Sintassi&lt;/th&gt;
+          &lt;th&gt;Significato&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;beq&lt;/code&gt; (branch equal)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;beq $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Passa l&amp;rsquo;esecuzione all&amp;rsquo;etichetta Label se &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;$t1&lt;/code&gt; contengono lo stesso valore&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bne&lt;/code&gt; (branch not equal)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;bne $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Passa l&amp;rsquo;esecuzione all&amp;rsquo;etichetta Label se &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;$t1&lt;/code&gt; contengono valori diversi&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;slt&lt;/code&gt; (set on less than)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;slt $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Imposta il registro &lt;code&gt;$s0&lt;/code&gt; a 1 se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt; (comparazione con numeri in complemento a 2)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;sltu&lt;/code&gt; (set on less than unsigned)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;sltu $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Imposta il registro &lt;code&gt;$s0&lt;/code&gt; a 1 se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt; (comparazione con numeri unsigned)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;j&lt;/code&gt; (jump)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;jump Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta all&amp;rsquo;etichetta &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;jr&lt;/code&gt; (jump register)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;jump $t0&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta all&amp;rsquo;indirizzo specificato nel registro &lt;code&gt;$t0&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;jal&lt;/code&gt; (jump and link)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;jal Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta all&amp;rsquo;etichetta &lt;code&gt;Label&lt;/code&gt; e salva in &lt;code&gt;$ra&lt;/code&gt; l&amp;rsquo;indirizzo di ritorno alla procedura chiamante&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;* esistono anche le versioni di queste istruzioni con comparazioni tra un registro e un valore immediato, rispettivamente &lt;code&gt;slti&lt;/code&gt; e &lt;code&gt;sltui&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id="costrutto-if-else"&gt;Costrutto if-else&lt;/h3&gt;
+&lt;h3 id=&#34;costrutto-if-else&#34;&gt;Costrutto if-else&lt;/h3&gt;
 &lt;p&gt;Uno dei costrutti if-else più semplice che possiamo costruire è:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; g){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f &lt;span style="color:#f92672"&gt;-=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; g){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Traduciamolo ora in assembly supponendo che &lt;code&gt;f&lt;/code&gt; sia &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;g&lt;/code&gt; sia &lt;code&gt;$t1&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;bne $t0, $t1, Else
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;bne $t0, $t1, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Vediamo passo passo cosa fa ogni linea:&lt;/p&gt;
 &lt;ul&gt;
@@ -231,16 +249,17 @@ Esci:
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;La condizione &lt;code&gt;f == g&lt;/code&gt; è la più semplice da rappresentare in assembly MIPS e la utilizzeremo per tutti gli altri esempi successivi ma il linguaggio ci permette di scrivere tutti i tipi di condizione.&lt;/p&gt;
-&lt;h3 id="costrutto-while"&gt;Costrutto while&lt;/h3&gt;
+&lt;h3 id=&#34;costrutto-while&#34;&gt;Costrutto while&lt;/h3&gt;
 &lt;p&gt;Il costrutto while è molto simile all&amp;rsquo;if - else, ecco un esempio:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; g){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; g){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Traduciamolo ora in assembly supponendo che &lt;code&gt;f&lt;/code&gt; sia &lt;code&gt;$t0&lt;/code&gt; e &lt;code&gt;g&lt;/code&gt; sia &lt;code&gt;$t1&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;While:
-bne $t0, $t1, Esci
-addi $t0, $t0, 1
-j While
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;While:
+    bne $t0, $t1, Esci
+    addi $t0, $t0, 1
+    j While
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Analizziamo passo passo cosa fa ogni linea:&lt;/p&gt;
 &lt;ul&gt;
@@ -248,19 +267,21 @@ Esci:
 &lt;li&gt;&lt;code&gt;addi $t0, $t0, 1&lt;/code&gt; incrementa il registro &lt;code&gt;$t0&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;j While&lt;/code&gt; effettua un salto incondizionale per ritornare all&amp;rsquo;inizio del loop&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="costrutto-for"&gt;Costrutto for&lt;/h3&gt;
+&lt;h3 id=&#34;costrutto-for&#34;&gt;Costrutto for&lt;/h3&gt;
 &lt;p&gt;Il costrutto for è un ciclo while che ci ha creduto di più, vediamo:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; (&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; i &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;; i &lt;span style="color:#f92672"&gt;==&lt;/span&gt; g; i&lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; g &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; f;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; g; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    g &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; f;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;* la condizione &lt;code&gt;i == g&lt;/code&gt; è abbastanza inutile ma questo è giusto un esempio basilare, vedremo successivamente come creare altre condizioni più utili&lt;/p&gt;
 &lt;p&gt;Ora ecco la versione in assembly, supponendo che &lt;code&gt;f&lt;/code&gt; sia &lt;code&gt;$t0&lt;/code&gt; ed &lt;code&gt;g&lt;/code&gt; sia &lt;code&gt;$t1&lt;/code&gt; e che &lt;code&gt;i&lt;/code&gt; sia &lt;code&gt;$s0&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;add $s0 $zero $zero
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;add $s0 $zero $zero
+
 For:
-bne $s0, $t1, Esci
-add $t1, $t1, $t0
-addi $s0, $s0, 1
-j For
+    bne $s0, $t1, Esci
+    add $t1, $t1, $t0
+    addi $s0, $s0, 1
+    j For
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Analizziamolo:&lt;/p&gt;
 &lt;ul&gt;
@@ -272,27 +293,31 @@ Esci:
 &lt;/ul&gt;
 &lt;p&gt;Fino ad ora l&amp;rsquo;unica condizione che abbiamo visto è &lt;code&gt;==&lt;/code&gt;, vediamo come si creano tutte le altre.&lt;/p&gt;
 &lt;p&gt;Il blocco di codice che andremo a tradurre ogni volta è un semplice if, come al solito supponiamo che &lt;code&gt;f&lt;/code&gt; sia &lt;code&gt;$t0&lt;/code&gt; e che &lt;code&gt;g&lt;/code&gt; sia &lt;code&gt;$t1&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f condizione g){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f &lt;span style="color:#f92672"&gt;+=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f &lt;span style="color:#f92672"&gt;-=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="condizione-"&gt;Condizione &lt;code&gt;!=&lt;/code&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f condizione g){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;condizione-&#34;&gt;Condizione &lt;code&gt;!=&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Per ottenere questa condizione basta sostituire &lt;code&gt;bne&lt;/code&gt; con &lt;code&gt;beq&lt;/code&gt; nel codice che abbiamo già visto in precedenza:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;beq $t0, $t1, Else
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;beq $t0, $t1, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="condizione--1"&gt;Condizione &lt;code&gt;&amp;gt;=&lt;/code&gt;&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;condizione--1&#34;&gt;Condizione &lt;code&gt;&amp;gt;=&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Per ottenere questa condizione sfrutteremo l&amp;rsquo;istruzione &lt;code&gt;slt&lt;/code&gt; (set on less than), che imposta il registro specificato a 0 se la condizione non è verificata o ad 1 se è verificata, vediamo il codice:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;slt $s0, $t0, $t1
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t0, $t1
 bne $s0, $zero, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ecco cosa accade ad ogni riga:&lt;/p&gt;
 &lt;ul&gt;
@@ -300,23 +325,27 @@ Esci:
 &lt;li&gt;&lt;code&gt;bne $s0, $zero, Else&lt;/code&gt; sfrutta il &amp;ldquo;trucco&amp;rdquo; che abbiamo usato fino ad ora ovvero invertire la condizione e branchare ad &lt;code&gt;Else&lt;/code&gt;, quindi controlla che &lt;code&gt;$s0&lt;/code&gt; sia diverso a 0, questo equivale a controllare che sia uguale ad 1 che nel nostro caso indica condizione falsa&lt;/li&gt;
 &lt;li&gt;il resto del codice rimane invariato&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="condizione--2"&gt;Condizione &lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;condizione--2&#34;&gt;Condizione &lt;code&gt;&amp;lt;&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Per ottenere questa condizione basta cambiare &lt;code&gt;bne&lt;/code&gt; in &lt;code&gt;beq&lt;/code&gt;, dato che adesso se la condizione è vera l&amp;rsquo;output di &lt;code&gt;slt&lt;/code&gt; sarà 1 mentre se è falsa l&amp;rsquo;output sarà 0, d&amp;rsquo;altronde l&amp;rsquo;istruzione &lt;code&gt;slt&lt;/code&gt; verifica proprio il minore, ecco il codice:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;slt $s0, $t0, $t1
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t0, $t1
 beq $s0, $zero, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="condizione--3"&gt;Condizione &lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/h3&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;condizione--3&#34;&gt;Condizione &lt;code&gt;&amp;gt;&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Per ottenere questa condizione usiamo il fatto che invertendo gli operandi di una condizione &lt;code&gt;&amp;lt;&lt;/code&gt;, otteniamo proprio la condizione &lt;code&gt;&amp;gt;&lt;/code&gt;, vediamo l&amp;rsquo;implementazione:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;slt $s0, $t1, $t0
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t1, $t0
 beq $s0, $zero, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Vediamo nel dettaglio come funziona:&lt;/p&gt;
 &lt;ul&gt;
@@ -324,14 +353,16 @@ Esci:
 &lt;li&gt;in questo caso l&amp;rsquo;espressione è falsa se l&amp;rsquo;output di &lt;code&gt;slt&lt;/code&gt; è 0 quindi usiamo l&amp;rsquo;istruzione &lt;code&gt;beq $s0 $zero Else&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;il codice rimanente è uguale agli esempi precedenti&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="condizione--4"&gt;Condizione &lt;code&gt;&amp;lt;=&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;condizione--4&#34;&gt;Condizione &lt;code&gt;&amp;lt;=&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;L&amp;rsquo;ultima condizione è &lt;code&gt;&amp;lt;=&lt;/code&gt;, per farla sfruttiamo il fatto che &lt;code&gt;&amp;lt;=&lt;/code&gt; è la condizione complementare di &lt;code&gt;&amp;gt;&lt;/code&gt;:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;slt $s0, $t1, $t0
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t1, $t0
 bne $s0, $zero, Else
 addi $t0, $t0, 1
 j Esci
+
 Else:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Vediamo riga per riga:&lt;/p&gt;
 &lt;ul&gt;
@@ -340,22 +371,25 @@ Esci:
 &lt;li&gt;il resto del codice rimane invariato&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Adesso abbiamo tutte le condizioni necessarie per scrivere i nostri programmi ma manca una cosa, i connettivi logici (&amp;amp;&amp;amp;, ||, !), vediamo come fare:&lt;/p&gt;
-&lt;h3 id="connettivo-or-"&gt;Connettivo OR &lt;code&gt;||&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;connettivo-or-&#34;&gt;Connettivo OR &lt;code&gt;||&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Il connettivo OR restituisce vero se almeno uno dei due input è vero, vediamo un codice in C e traduciamolo supponendo &lt;code&gt;f = $t0&lt;/code&gt; e &lt;code&gt;g = $t1&lt;/code&gt; :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#f92672"&gt;||&lt;/span&gt; g &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#f92672"&gt;+=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#f92672"&gt;-=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; g &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f&lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ecco la versione in assembly:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;addi $t2, $zero, 1
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;addi $t2, $zero, 1
 addi $t3, $zero, 2
+
 beq $t0, $t2, Vero
 beq $t1, $t3, Vero
 subi $t0, $t0, 1
 j Fine
+
 Vero:
-addi $t0, $t0, 1
+    addi $t0, $t0, 1
+
 Fine:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Come è possibile notare non abbiamo seguito l&amp;rsquo;approccio visto fin&amp;rsquo;ora (invertire la condizione e fare branch al ramo else) ma abbiamo effettuato proprio il contrario, vediamo bene il codice:&lt;/p&gt;
 &lt;ul&gt;
@@ -363,133 +397,144 @@ Fine:
 &lt;li&gt;dato che OR restituisce vero se almeno un input è vero abbiamo messo in successione le due istruzioni &lt;code&gt;beq $t0, $t2, Vero&lt;/code&gt; e &lt;code&gt;beq $t1, $t3, Vero&lt;/code&gt;, in modo tale che se la prima condizione è vera viene effettuato il branch direttamente senza valutare la seconda, se invece entrambe sono false viene subito dopo viene eseguito il ramo else&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Il meccanismo che abbiamo implementato dove se la prima condizione è vera la seconda viene ignorata è detto short-circuit ed è un trucco usato per rendere il codice più efficiente, esso viene impiegato anche in linguaggi ad alto livello come il C.&lt;/p&gt;
-&lt;h3 id="connettivo-and-"&gt;Connettivo AND &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;connettivo-and-&#34;&gt;Connettivo AND &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Il connettivo AND restituisce vero se entrambi gli input sono veri, vediamo un esempio in C:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; g &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#f92672"&gt;+=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; f&lt;span style="color:#f92672"&gt;-=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; g &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f&lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Traduciamolo in assembly supponendo &lt;code&gt;f = $t0&lt;/code&gt; e &lt;code&gt;g = $t1&lt;/code&gt;:&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;addi $t2, $zero, 1
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;addi $t2, $zero, 1
 addi $t3, $zero, 2
+
 bne $t0, $t2, Falso
 bne $t1, $t3, Falso
 addi $t0, $t0, 1
 j Fine
+
 Falso:
-subi $t0, $t0, 1
+    subi $t0, $t0, 1
+
 Fine:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Analizziamo il codice:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;come nell&amp;rsquo;esempio precedente le prime due istruzioni caricano nei registri i valori costanti necessari per verificare le condizioni&lt;/li&gt;
 &lt;li&gt;anche con l&amp;rsquo;AND implementiamo lo short-circuit, infatti abbiamo le due istruzioni di seguito &lt;code&gt;bne $t0, $t2, Falso&lt;/code&gt; e &lt;code&gt;bne $t1, $t3, Falso&lt;/code&gt;, qui sfruttiamo il fatto che basta un solo input con valore falso per far uscire in output un valore falso&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="connettivo-not-"&gt;Connettivo NOT &lt;code&gt;!&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Per la negazione basta scegliere la condizione complementare rispetto a quella da negare, ad esempio se vogliamo valutare &lt;code&gt;!(f &amp;gt;= g)&lt;/code&gt;, basta riscriverla come &lt;code&gt;f &amp;lt; g&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id="pseudoistruzioni"&gt;Pseudoistruzioni&lt;/h3&gt;
+&lt;h3 id=&#34;connettivo-not-&#34;&gt;Connettivo NOT &lt;code&gt;!&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Per la negazione basta scegliere la condizione complementare rispetto a quella da negare, ad esempio se vogliamo valutare &lt;code&gt;!(f &amp;gt;= g)&lt;/code&gt;, basta riscriverla come &lt;code&gt;f &amp;lt;  g&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;pseudoistruzioni&#34;&gt;Pseudoistruzioni&lt;/h3&gt;
 &lt;p&gt;Codificare le condizioni in assembly non è stata proprio una passeggiata, beh è stato del tutto inutile, penso di averti fatto perdere almeno mezz&amp;rsquo;ora del tuo tempo hehe, questo perchè esistono le pseudoistruzioni (che tral&amp;rsquo;altro abbiamo già usato).&lt;/p&gt;
 &lt;p&gt;Le pseudoistruzioni sono istruzioni che non vengono effettivamente eseguite dalla CPU ma vengono tradotte dall&amp;rsquo;assembler in istruzioni equivalenti, vediamo quali sono:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Codice mnemonico&lt;/th&gt;
-&lt;th&gt;Sintassi&lt;/th&gt;
-&lt;th&gt;Significato&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;subi&lt;/code&gt; (subtract immediate)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;subi $t0 $t1 const&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;$t0 = $t1 - const&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;la&lt;/code&gt; (load address)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;la $t0 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Carica nel registro &lt;code&gt;$t0&lt;/code&gt; l&amp;rsquo;indirizzo del label &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;li&lt;/code&gt; (load immediate)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;li $t0 const&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Carica nel registro &lt;code&gt;$t0&lt;/code&gt; il valore &lt;code&gt;const&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;move&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;move $t0 $t1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Copia il contenuto di &lt;code&gt;$t1&lt;/code&gt; nel registro &lt;code&gt;$t0&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bgt&lt;/code&gt; (branch on greater than)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bgt $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;gt; $t1&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;bge&lt;/code&gt; (branch on greater equal than)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;bge $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;gt;= $t1&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;blt&lt;/code&gt; (branch on less than)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;blt $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;ble&lt;/code&gt; (branch on less equal than)&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ble $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;lt;= $t1&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Codice mnemonico&lt;/th&gt;
+          &lt;th&gt;Sintassi&lt;/th&gt;
+          &lt;th&gt;Significato&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;subi&lt;/code&gt; (subtract immediate)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;subi $t0 $t1 const&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;$t0 = $t1 - const&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;la&lt;/code&gt; (load address)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;la $t0 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Carica nel registro &lt;code&gt;$t0&lt;/code&gt; l&amp;rsquo;indirizzo del label &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;li&lt;/code&gt; (load immediate)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;li $t0 const&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Carica nel registro &lt;code&gt;$t0&lt;/code&gt; il valore &lt;code&gt;const&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;move&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;move $t0 $t1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Copia il contenuto di &lt;code&gt;$t1&lt;/code&gt; nel registro &lt;code&gt;$t0&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bgt&lt;/code&gt; (branch on greater than)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;bgt $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;gt; $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bge&lt;/code&gt; (branch on greater equal than)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;bge $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;gt;= $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;blt&lt;/code&gt; (branch on less than)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;blt $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;ble&lt;/code&gt; (branch on less equal than)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;ble $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Salta al label &lt;code&gt;Label&lt;/code&gt; se &lt;code&gt;$t0 &amp;lt;= $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="costrutto-switch-case-jump-table"&gt;Costrutto switch-case (jump table)&lt;/h3&gt;
+&lt;h3 id=&#34;costrutto-switch-case-jump-table&#34;&gt;Costrutto switch-case (jump table)&lt;/h3&gt;
 &lt;p&gt;Un modo molto efficiente di effettuare tanti controlli con valori costanti insieme è il costrutto switch-case&lt;/p&gt;
 &lt;p&gt;Ad esempio dato questo if:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (f &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;} &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa se non si verifica nessuna condizione
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa se non si verifica nessuna condizione
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Possiamo scrivere uno switch-case equivalente:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;switch&lt;/span&gt; (f){
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;case&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;default&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// fai qualcosa se non si verifica nessuna condizione
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;switch&lt;/span&gt; (f){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// fai qualcosa se non si verifica nessuna condizione
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per implementarlo in assembly andremo a creare un array di indirizzi contigui, uno per ogni ramo dello switch e per raggiungere ogni indirizzo andremo ad offsettarlo con i valori presenti nel case, vediamo come è fatto (supponiamo &lt;code&gt;f = $t0&lt;/code&gt;):&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-assembly" data-lang="assembly"&gt;.data
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;.data
 Jump_table:
-.word Case0
-.word Case1
-.word Case2
+    .word Case0
+    .word Case1
+    .word Case2
+
 .text
 la $t1, Jump_table
+
 sll $t2, $t0, 2
 add $t3, $t1, $t2
 lw $t4, 0($t3)
+
 jr $t4
+
 Case0:
-# fai qualcosa
-j Esci
+    # fai qualcosa
+    j Esci
+
 Case1:
-# fai qualcosa
-j Esci
+    # fai qualcosa
+    j Esci
+
 Case2:
-# fai qualcosa
-j Esci
+    # fai qualcosa
+    j Esci
+
 default:
-# fai qualcosa se non si verifica nessuna condizione
+    # fai qualcosa se non si verifica nessuna condizione
+
 Esci:
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In questo esempio manca una parte fondamentale ovvero il check sul valore di &lt;code&gt;$t0&lt;/code&gt;, poichè potrebbe sforare il limite dato dai valori presenti nel case.&lt;/p&gt;
 &lt;p&gt;Vediamo come funziona:&lt;/p&gt;
@@ -517,9 +562,9 @@ Esci:
 &lt;p&gt;ogni label &lt;code&gt;case&lt;/code&gt; finisce con l&amp;rsquo;istruzione &lt;code&gt;j Esci&lt;/code&gt;, questa è la codifica del &lt;code&gt;break&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="procedure"&gt;Procedure&lt;/h2&gt;
+&lt;h2 id=&#34;procedure&#34;&gt;Procedure&lt;/h2&gt;
 &lt;p&gt;Le funzioni e le procedure sono dei blocchi di codice riutilizzabili, ed esse sono alla base della programmazione, quando avete iniziato ad imparare il C ad esempio utilizzavate una procedura senza nemmeno saperlo, ovvero la procedura &lt;code&gt;main&lt;/code&gt;, anche l&amp;rsquo;assembly MIPS ci offre varie istruzioni e registri per gestire le chiamate alle procedure, prima di addentrarci nella scrittura di procedure è necessario parlare di due concetti:&lt;/p&gt;
-&lt;h3 id="lo-stack-delle-chiamate-call-stack"&gt;Lo stack delle chiamate (call stack)&lt;/h3&gt;
+&lt;h3 id=&#34;lo-stack-delle-chiamate-call-stack&#34;&gt;Lo stack delle chiamate (call stack)&lt;/h3&gt;
 &lt;p&gt;Alla base delle procedure è presente una struttura dati alo stesso semplice e importantissima, lo stack.&lt;/p&gt;
 &lt;p&gt;Lo stack è una lista leggermente più semplificata che segue lo schema LIFO (last in first out, l&amp;rsquo;ultimo elemento ad entrare è il primo ad uscire), una sua analogia nel mondo reale è un mazzo di carte, vediamo le due operazioni fondamentali:&lt;/p&gt;
 &lt;ul&gt;
@@ -527,49 +572,49 @@ Esci:
 &lt;li&gt;push, quando effettuiamo un operazione di push andiamo ad aggiungere un elemento alla fine della lista, seguendo la nostra analogia andiamo ad aggiungere una carta alla cima del mazzo&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Lo stack è fondamentale poichè ci permette di passare più di 4 argomenti alle funzioni (abbiamo solo 4 registri per gli argomenti) ma sopratutto di salvare lo stato dei registri al momento prima della chiamata, per poi ripristinarli al momento del ritorno alla procedura chiamante&lt;/p&gt;
-&lt;h3 id="registri-callee-saved-vs-caller-saved"&gt;Registri callee-saved vs caller-saved&lt;/h3&gt;
+&lt;h3 id=&#34;registri-callee-saved-vs-caller-saved&#34;&gt;Registri callee-saved vs caller-saved&lt;/h3&gt;
 &lt;p&gt;A proposito del salvataggio e ripristino dei registri, la convenzione per le chiamate (calling-convention), specifica quali registri devono essere salvati dalla procedura chiamante e quali dalla procedura chiamata, vediamoli:&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="text-align: center"&gt;&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$v0-$v1&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Caller-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$a0-$a3&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Caller-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$t0-$t9&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Caller-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$s0-$s7&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Callee-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$gp&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Callee-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$sp&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Callee-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$fp&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Callee-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style="text-align: center"&gt;&lt;code&gt;$ra&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Callee-saved&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$v0-$v1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Caller-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$a0-$a3&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Caller-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$t0-$t9&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Caller-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$s0-$s7&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Callee-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$gp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Callee-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$sp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Callee-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$fp&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Callee-saved&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;code&gt;$ra&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Callee-saved&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;Seguendo questa convenzione, per quanto riguarda i registri callee-saved è responsabilità della procedura chiamata fare in modo che lo stato di questi registri sia invariato per la procedura chiamante, mentre per i registri caller-saved la responsabilità di mantenere invariato lo stato cade sulla procedura chiamante.&lt;/p&gt;
 &lt;p&gt;In un caso molto particolare, ovvero nelle funzioni ricorsive (funzioni che chiamano se stesse), non c&amp;rsquo;è distinzione tra funzione chiamata e chiamante quindi queste regole non ci importano (vedremo successivamente un esempio)&lt;/p&gt;
@@ -577,4 +622,9 @@ Esci:
 &lt;ul&gt;
 &lt;li&gt;procedura foglia, ovvero una procedura che non effettua chiamate ad altre procedure al suo interno&lt;/li&gt;
 &lt;li&gt;procedura ramo, ovvero una procedura che effettua chiamate ad altre procedure al suo interno&lt;/li&gt;
-&lt;/ul&gt;</content></item></channel></rss>
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
