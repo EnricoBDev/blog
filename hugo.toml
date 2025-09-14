@@ -1,4 +1,4 @@
-baseURL = 'https://enricobdev.github.io/'
+baseURL = 'https://enricobdev.github.io/blog/'
 languageCode = 'en-us'
 title = "EnricoBDev's Blog"
 pagination.pagerSize = 5
