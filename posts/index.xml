@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 14 Sep 2025 19:27:32 +0000</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>https://enricobdev.github.io/blog/posts/prova/my-first-post_prova/</link>
+      <link>https://enricobdev.github.io/blog/posts/prova/</link>
       <pubDate>Sun, 14 Sep 2025 19:27:32 +0000</pubDate>
       
-      <guid>https://enricobdev.github.io/blog/posts/prova/my-first-post_prova/</guid>
+      <guid>https://enricobdev.github.io/blog/posts/prova/</guid>
       <description>&lt;h1 id=&#34;assembly-mips&#34;&gt;Assembly MIPS&lt;/h1&gt;
 &lt;h2 id=&#34;struttura-di-un-file-assembly&#34;&gt;Struttura di un file assembly&lt;/h2&gt;
 &lt;p&gt;Prima di entrare nel dettaglio dell&amp;rsquo;assembly MIPS dobbiamo parlare di come è organizzato un file sorgente assembly, ci sono varie porzioni:&lt;/p&gt;
@@ -623,6 +623,17 @@ Esci:
 &lt;li&gt;procedura foglia, ovvero una procedura che non effettua chiamate ad altre procedure al suo interno&lt;/li&gt;
 &lt;li&gt;procedura ramo, ovvero una procedura che effettua chiamate ad altre procedure al suo interno&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://enricobdev.github.io/blog/posts/prova2/boh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://enricobdev.github.io/blog/posts/prova2/boh/</guid>
+      <description>&lt;p&gt;fai tu&lt;/p&gt;</description>
+      <content>&lt;p&gt;fai tu&lt;/p&gt;
 </content>
     </item>
     
