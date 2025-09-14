@@ -1,0 +1,84 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = "EnricoBDev's Blog"
+pagination.pagerSize = 5
+theme = "re-terminal"
+
+[frontmatter]
+  date    = ["date", "publishDate"]
+  lastmod = ["lastmod", ":git", "date", "publishDate"]
+
+
+[params]
+  subtitle = "Provocative, edgy, thought provoking, technically and visually stunning... a website like you've never seen it before"
+
+  updatedDatePrefix = "Updated"
+
+  logo.logoText = "EnricoBDev's Blog"
+
+  contentTypeName = "posts"
+
+  themeColor = "green"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+
+  # show selector to switch language
+  showLanguageSelector = false
+
+  # set theme to full screen width
+  fullWidthTheme = false
+
+  # center theme with default width
+  centerTheme = true
+
+  # if your resource directory contains an image called `cover.(jpg|png|webp)`,
+  # then the file will be used as a cover automatically.
+  # With this option you don't have to put the `cover` param in a front-matter.
+  autoCover = true
+
+  # set post to show the last updated
+  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+  showLastUpdated = false
+
+  # set a custom favicon (default is a `themeColor` square)
+  # favicon = "favicon.ico"
+
+  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+  # updatedDatePrefix = "Updated"
+
+  # set all headings to their default size (depending on browser settings)
+  # oneHeadingSize = true # default
+
+  # whether to show a page's estimated reading time
+  # readingTime = false # default
+
+  # whether to show a table of contents
+  # can be overridden in a page's front-matter
+  Toc = true# default
+
+  # set title for the table of contents
+  # can be overridden in a page's front-matter
+  # TocTitle = "Table of Contents" # default
+
+
+  # you can set a banner on the top of the page with a call to action
+  # defaults: dismissible = false; URL is optional
+  # [params.banner]
+  # dismissible = false
+  # text = "Check it out on GitHub"
+  # url = "https://github.com/mirus-ua/hugo-theme-re-terminal"
+
+
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About this blog"
+    url = "/about"
+
+
+  
+
+
+
