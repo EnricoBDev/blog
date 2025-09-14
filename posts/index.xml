@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on EnricoBDev&#39;s Blog</title>
-    <link>https://enricobdev.github.io/blog/posts/</link>
+    <link>https://enricobdev.github.io/posts/</link>
     <description>Recent content in Posts on EnricoBDev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Sep 2025 19:27:32 +0000</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Sep 2025 19:27:32 +0000</lastBuildDate><atom:link href="https://enricobdev.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Post</title>
-      <link>https://enricobdev.github.io/blog/posts/prova/</link>
+      <link>https://enricobdev.github.io/posts/prova/</link>
       <pubDate>Sun, 14 Sep 2025 19:27:32 +0000</pubDate>
       
-      <guid>https://enricobdev.github.io/blog/posts/prova/</guid>
+      <guid>https://enricobdev.github.io/posts/prova/</guid>
       <description>&lt;h1 id=&#34;assembly-mips&#34;&gt;Assembly MIPS&lt;/h1&gt;
 &lt;h2 id=&#34;struttura-di-un-file-assembly&#34;&gt;Struttura di un file assembly&lt;/h2&gt;
 &lt;p&gt;Prima di entrare nel dettaglio dell&amp;rsquo;assembly MIPS dobbiamo parlare di come è organizzato un file sorgente assembly, ci sono varie porzioni:&lt;/p&gt;
@@ -628,10 +628,10 @@ Esci:
     
     <item>
       <title></title>
-      <link>https://enricobdev.github.io/blog/posts/prova2/boh/</link>
+      <link>https://enricobdev.github.io/posts/prova2/boh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://enricobdev.github.io/blog/posts/prova2/boh/</guid>
+      <guid>https://enricobdev.github.io/posts/prova2/boh/</guid>
       <description>&lt;p&gt;fai tu&lt;/p&gt;</description>
       <content>&lt;p&gt;fai tu&lt;/p&gt;
 </content>
