@@ -3,8 +3,8 @@ languageCode = 'en-us'
 title = "EnricoBDev's Blog"
 pagination.pagerSize = 5
 theme = "re-terminal"
-relativeURLs = true
-canonifyURLs = true 
+relativeURLs = false
+canonifyURLs = false
 
 [permalinks]
 posts = "/:slug/"

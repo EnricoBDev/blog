@@ -18,7 +18,7 @@
 
 {{ $bundle := slice $menu $prism | resources.Concat "bundle.js" | resources.Minify }}
 
-<script type="text/javascript" src="{{ $bundle.Permalink | absURL}}"></script>
+<script type="text/javascript" src="{{ $bundle.Permalink | absURL }}"></script>
 
 <!-- Banner JS if it enabled -->
 {{ if .Site.Params.Banner }}
