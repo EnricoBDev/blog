@@ -4,7 +4,11 @@ title = "EnricoBDev's Blog"
 pagination.pagerSize = 5
 theme = "re-terminal"
 relativeURLs = true
-canonifyURLs = false
+canonifyURLs = true 
+
+[permalinks]
+posts = "/:slug/"
+
 
 [frontmatter]
   date    = ["date", "publishDate"]
