@@ -626,18 +626,5 @@ Esci:
 </content>
     </item>
     
-    <item>
-      <title>Perchè</title>
-      <link>https://enricobdev.github.io/blog/perch%C3%A8/</link>
-      <pubDate>Sun, 14 Sep 2025 19:27:32 +0000</pubDate>
-      
-      <guid>https://enricobdev.github.io/blog/perch%C3%A8/</guid>
-      <description>&lt;h1 id=&#34;perchè&#34;&gt;Perchè&lt;/h1&gt;
-&lt;p&gt;fai tu&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;perchè&#34;&gt;Perchè&lt;/h1&gt;
-&lt;p&gt;fai tu&lt;/p&gt;
-</content>
-    </item>
-    
   </channel>
 </rss>
