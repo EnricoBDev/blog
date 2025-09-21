@@ -45,7 +45,8 @@ posts = "/:slug/"
 
   # set post to show the last updated
   # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-  showLastUpdated = false
+  enableGitInfo = true
+  showLastUpdated = true 
 
   # set a custom favicon (default is a `themeColor` square)
   # favicon = "favicon.ico"
@@ -57,11 +58,11 @@ posts = "/:slug/"
   # oneHeadingSize = true # default
 
   # whether to show a page's estimated reading time
-  # readingTime = false # default
-
+  readingTime = true 
+  
   # whether to show a table of contents
   # can be overridden in a page's front-matter
-  Toc = true# default
+  Toc = true
 
   # set title for the table of contents
   # can be overridden in a page's front-matter
@@ -80,7 +81,7 @@ posts = "/:slug/"
 [menu]
   [[menu.main]]
     identifier = "about"
-    name = "About this blog"
+    name = "About me"
     url = "/about"
 
 
