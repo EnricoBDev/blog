@@ -12,13 +12,11 @@ posts = "/:slug/"
 
 [frontmatter]
   date    = ["date", "publishDate"]
-  lastmod = ["lastmod", ":git", "date", "publishDate"]
 
 
 [params]
   subtitle = "Provocative, edgy, thought provoking, technically and visually stunning... a website like you've never seen it before"
 
-  updatedDatePrefix = "Updated"
 
   logo.logoText = "EnricoBDev's Blog"
 
@@ -43,10 +41,7 @@ posts = "/:slug/"
   # With this option you don't have to put the `cover` param in a front-matter.
   autoCover = true
 
-  # set post to show the last updated
-  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
-  enableGitInfo = true
-  showLastUpdated = true 
+  showLastUpdated = true
 
   # set a custom favicon (default is a `themeColor` square)
   # favicon = "favicon.ico"
