@@ -11,7 +11,7 @@ posts = "/:slug/"
 
 
 [frontmatter]
-  date    = ["date", "publishDate"]
+  date = ["date", "publishDate"]
 
 
 [params]
@@ -41,7 +41,7 @@ posts = "/:slug/"
   # With this option you don't have to put the `cover` param in a front-matter.
   autoCover = true
 
-  showLastUpdated = true
+  showLastUpdated = false
 
   # set a custom favicon (default is a `themeColor` square)
   # favicon = "favicon.ico"
