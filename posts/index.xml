@@ -6,6 +6,153 @@
     <description>Recent content in Posts on EnricoBDev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Sep 2025 11:31:11 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Sep 2025 21:20:03 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conditional logic in MIPS assembly</title>
+      <link>https://enricobdev.github.io/blog/conditional-logic-in-mips-assembly/</link>
+      <pubDate>Mon, 22 Sep 2025 21:20:03 +0200</pubDate>
+      
+      <guid>https://enricobdev.github.io/blog/conditional-logic-in-mips-assembly/</guid>
+      <description>&lt;h1 id=&#34;conditional-logic-in-mips-assembly&#34;&gt;Conditional logic in MIPS assembly&lt;/h1&gt;
+&lt;p&gt;To build traditional conditional logic the language offers us some control flow instructions and some conditional data transfer instructions, let&amp;rsquo;s see them&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Mnemonic&lt;/th&gt;
+          &lt;th&gt;Sintax&lt;/th&gt;
+          &lt;th&gt;Meaning&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;beq&lt;/code&gt; (branch equal)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;beq $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &amp;ldquo;Label&amp;rdquo; if &lt;code&gt;$t0&lt;/code&gt; and &lt;code&gt;$t1&lt;/code&gt; are equal&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bne&lt;/code&gt; (branch not equal)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;bne $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &amp;ldquo;Label&amp;rdquo; if &lt;code&gt;$t0&lt;/code&gt; and &lt;code&gt;$t1&lt;/code&gt; are different&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;slt&lt;/code&gt; (set on less than)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;slt $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Sets register &lt;code&gt;$s0&lt;/code&gt; to 1 if &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;j&lt;/code&gt; (jump)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;jump Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;* there is also another variant of this instruction that compares the content of a register and an inmmediate value (&lt;code&gt;slti&lt;/code&gt;)&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;conditional-logic-in-mips-assembly&#34;&gt;Conditional logic in MIPS assembly&lt;/h1&gt;
+&lt;p&gt;To build traditional conditional logic the language offers us some control flow instructions and some conditional data transfer instructions, let&amp;rsquo;s see them&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;Mnemonic&lt;/th&gt;
+          &lt;th&gt;Sintax&lt;/th&gt;
+          &lt;th&gt;Meaning&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;beq&lt;/code&gt; (branch equal)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;beq $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &amp;ldquo;Label&amp;rdquo; if &lt;code&gt;$t0&lt;/code&gt; and &lt;code&gt;$t1&lt;/code&gt; are equal&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;bne&lt;/code&gt; (branch not equal)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;bne $t0 $t1 Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &amp;ldquo;Label&amp;rdquo; if &lt;code&gt;$t0&lt;/code&gt; and &lt;code&gt;$t1&lt;/code&gt; are different&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;slt&lt;/code&gt; (set on less than)*&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;slt $s0 $t0 $t1&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Sets register &lt;code&gt;$s0&lt;/code&gt; to 1 if &lt;code&gt;$t0 &amp;lt; $t1&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;code&gt;j&lt;/code&gt; (jump)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;jump Label&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;Jumps to &lt;code&gt;Label&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;* there is also another variant of this instruction that compares the content of a register and an inmmediate value (&lt;code&gt;slti&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;Now we will see every condition present in any modern programming language, in each example we will translate the same if statement, but we will change the condition, here is the C code we will translate:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (f condition g){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We will also suppose that the variable &lt;code&gt;f&lt;/code&gt; is the &lt;code&gt;$t0&lt;/code&gt; register and &lt;code&gt;g&lt;/code&gt; is &lt;code&gt;$t1&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-and--condition&#34;&gt;&lt;code&gt;!=&lt;/code&gt; and &lt;code&gt;==&lt;/code&gt; condition&lt;/h2&gt;
+&lt;p&gt;To create these conditions we just need to use the provided &lt;code&gt;bne&lt;/code&gt;, &lt;code&gt;beq&lt;/code&gt; instructions, let&amp;rsquo;s see an example with the &lt;code&gt;!=&lt;/code&gt; condition:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;beq $t0, $t1, Else
+addi $t0, $t0, 1
+j Exit
+
+Else:
+    subi $t0, $t0, 1
+
+Exit:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can see that in this example we actually use the opposite instruction (we are using &lt;code&gt;beq&lt;/code&gt; for a &lt;code&gt;!=&lt;/code&gt; condition) but it still works, since we jump to the else label if the two variables are equal, otherwise we continue with the block inside the if statement.&lt;/p&gt;
+&lt;h2 id=&#34;-condition&#34;&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt; condition&lt;/h2&gt;
+&lt;p&gt;To make this condition we are going to use the &lt;code&gt;slt&lt;/code&gt; instruction and we are going to use the same trick as before, where we negate the condition and jump to Else if the negated condition is true, let&amp;rsquo;s see:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t0, $t1
+bne $s0, $zero, Else
+addi $t0, $t0, 1
+j Exit
+
+Else:
+    subi $t0, $t0, 1
+
+Exit:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;slt $s0, $t0, $t1&lt;/code&gt; is the most important line, it  exploits the fact that the negated condition of &lt;code&gt;&amp;lt;&lt;/code&gt; is &lt;code&gt;&amp;gt;=&lt;/code&gt;, so if the condition we want to achieve is true &lt;code&gt;slt&lt;/code&gt; sets &lt;code&gt;$s0 = 0&lt;/code&gt;, then after that we use the trick i just told you in the previous paragraph where we jump to Else if the negated condition is true.&lt;/p&gt;
+&lt;h2 id=&#34;-condition-1&#34;&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; condition&lt;/h2&gt;
+&lt;p&gt;To obtain this condition we just need to change &lt;code&gt;bne&lt;/code&gt; to &lt;code&gt;beq&lt;/code&gt; in the previous snippet since now if the condition is true the output from &lt;code&gt;slt&lt;/code&gt; will be 1, after all &lt;code&gt;slt&lt;/code&gt; checks the &lt;code&gt;&amp;lt;&lt;/code&gt; condition&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t0, $t1
+beq $s0, $zero, Else
+addi $t0, $t0, 1
+j Exit
+
+Else:
+    subi $t0, $t0, 1
+
+Exit:
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-condition-2&#34;&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; condition&lt;/h2&gt;
+&lt;p&gt;To translate this condition we use the fact that by inverting the operands of a &lt;code&gt;&amp;lt;&lt;/code&gt; condition we get the &lt;code&gt;&amp;gt;&lt;/code&gt; condition, let&amp;rsquo;s see the implementation:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t1, $t0
+beq $s0, $zero, Else
+addi $t0, $t0, 1
+j Exit
+
+Else:
+    subi $t0, $t0, 1
+
+Exit:
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;-condition-3&#34;&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt; condition&lt;/h2&gt;
+&lt;p&gt;The last condition is &lt;code&gt;&amp;lt;=&lt;/code&gt;, to translate it we exploit the fact that &lt;code&gt;&amp;lt;=&lt;/code&gt; is the negation of &lt;code&gt;&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-assembly&#34; data-lang=&#34;assembly&#34;&gt;slt $s0, $t1, $t0
+bne $s0, $zero, Else
+addi $t0, $t0, 1
+j Exit
+
+Else:
+    subi $t0, $t0, 1
+
+Exit:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We use the same check &lt;code&gt;slt $s0, $t1, $t0&lt;/code&gt; that we used for &lt;code&gt;&amp;gt;&lt;/code&gt; but the difference is that if the condition we want to achieve is true, then &lt;code&gt;slt&lt;/code&gt; outputs a 0 (as we said &lt;code&gt;&amp;lt;=&lt;/code&gt; is the negation of &lt;code&gt;&amp;gt;&lt;/code&gt;, and we just switched the operands when using &lt;code&gt;slt&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;And there you have it, these are all the traditional logic conditions you are familiar with, now a couple of thoughts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pseudoinstructions that do these conditions (for example &lt;code&gt;bgt&lt;/code&gt; for &lt;code&gt;&amp;gt;&lt;/code&gt;) exists, these are instructions that are translated to other more basic instructions by the assembler (that&amp;rsquo;s what the &lt;code&gt;$at&lt;/code&gt; register is used for)&lt;/li&gt;
+&lt;li&gt;these translations can be quite challenging to remember (and i really hope that my explanation was not too short or confusing), but recreating them could be a good exercise to learn or practice another assembly flavour (even though the ISA may give you different instructions)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you read all of this, thank you! If you have any questions or corrections (just keep in mind English is not my mother tongue) you can put an &lt;a href=&#34;https://github.com/EnricoBDev/blog/issues&#34;&gt;issue on Github&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>
