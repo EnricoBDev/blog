@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>How to handle exceptions in Java :: EnricoBDev&#39;s Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What to do when things go south" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://enricobdev.github.io/blog/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://enricobdev.github.io/blog/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://enricobdev.github.io/blog/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to handle exceptions in Java">
+<meta property="og:description" content="What to do when things go south" />
+<meta property="og:url" content="https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/" />
+<meta property="og:site_name" content="EnricoBDev&#39;s Blog" />
+
+  
+    <meta property="og:image" content="https://enricobdev.github.io/blog/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-10-16 10:21:03 &#43;0200 &#43;0200" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="green">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://enricobdev.github.io/blog/">
+  <div class="logo">
+    EnricoBDev&#39;s Blog
+  </div>
+</a>
+
+    </div>
+    
+    <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/blog/about">About me</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  <div style="margin-top: 1vh;">
+    Provocative, edgy, thought provoking, technically and visually stunning... a website like you&#39;ve never seen it before
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/blog/about" >About me</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/">How to handle exceptions in Java</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-10-16</time><span class="post-author">EnricoBDev</span>
+    
+<span class="post-reading-time">5 min read (947 words)</span></div>
+
+  
+  
+
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-could-possibly-go-wrong">What could possibly go wrong?</a></li>
+    <li><a href="#what-even-is-an-exception">What even is an exception?</a></li>
+    <li><a href="#the-try-catch-block">The <code>try-catch</code> block</a></li>
+    <li><a href="#checked-and-unchecked-exceptions">Checked and unchecked exceptions</a></li>
+    <li><a href="#gracefully-restore-external-resources">Gracefully restore external resources</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <h1 id="exceptions-in-java">Exceptions in Java<a href="#exceptions-in-java" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="what-could-possibly-go-wrong">What could possibly go wrong?<a href="#what-could-possibly-go-wrong" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>In the lifetime of an application not everything will go as planned, mistakes will be made both from the user and the programmer but sometimes you will just be unlucky (a random bit flip caused by a cosmic ray will change your game state&hellip; and give a <a href="https://hackaday.com/2021/02/17/cosmic-ray-flips-bit-assists-mario-64-speedrunner/">speedrunner a huge timesave</a>)</p>
+<p>We can categorize the sources of error in two groups:</p>
+<ul>
+<li>internal errors, for example the user wants to do a division by zero or a method is called on a null reference</li>
+<li>external errors, for example a comunication error with a remote DBMS or even an error inside the JVM, for example an &ldquo;Out of memory error&rdquo;</li>
+</ul>
+<p>The OOP way of handling those problems is by handling them outside the normal control flow.</p>
+<h2 id="what-even-is-an-exception">What even is an exception?<a href="#what-even-is-an-exception" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Like everything in Java an exception is an <code>Object</code> that is used to tell the caller method that there is a problem and it needs to be handled.</p>
+<p>Here is what happens in detail</p>
+<ul>
+<li>the callee method checks conditions that can create errors</li>
+<li>it throws an exception if these conditions are true</li>
+<li>the caller now has to handle the exception</li>
+</ul>
+<p>Let&rsquo;s see an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> <span style="color:#a6e22e">division</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (b <span style="color:#f92672">==</span> 0){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalArgumentException(<span style="color:#e6db74">&#34;Division by zero&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ((<span style="color:#66d9ef">float</span>) a )<span style="color:#f92672">/</span> b;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In this case if the divisor <code>b</code> is zero then an exception is thrown, now the method execution stops and we return to the caller, it can do three things:</p>
+<ul>
+<li>prevent the exception: the caller can check beforehand if <code>b == 0</code>, in this case the exception will not be thrown, if the caller cannot do these checks (because it would be too complex) it can do two things:</li>
+<li>
+<ul>
+<li>it can rethrow and propagate the exception to its caller because it does not have enough context or responsibility and it doesn&rsquo;t know how to handle it</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>it can catch the exception with a <code>try-catch</code> block and handle it</li>
+</ul>
+</li>
+</ul>
+<p>You should always try to prevent the exception, because handling exceptions can be computationally expensive and since exceptions do not follow the usual control flow it is harder to program.</p>
+<h2 id="the-try-catch-block">The <code>try-catch</code> block<a href="#the-try-catch-block" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>As I said we can handle the exception by using a <code>try-catch</code> block, let&rsquo;s see an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">tryCatch</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> arr <span style="color:#f92672">=</span> {1, 2, 3};
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(arr<span style="color:#f92672">[</span>4<span style="color:#f92672">]</span>);
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> (ArrayIndexOutOfBoundsException e){
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Caught an array index error: &#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">catch</span> (Exception e){
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Caught a generic exception&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We wrap the code that could throw an exception (in this simple example an exception will surely be thrown) in the <code>try</code> block, if an exception is actually thrown then the execution of the <code>try</code> block stops and the code inside the first <code>catch</code> statement that matches the exception will be executed.</p>
+<p>The order of the <code>catch</code> blocks matters, if we want a detailed explanation of what happened we need to put the most generic exception type at the bottom (in this case we put the base class <code>Exception</code> at the bottom) because otherwise the thrown exception will always be caught with the most generic error message.</p>
+<h2 id="checked-and-unchecked-exceptions">Checked and unchecked exceptions<a href="#checked-and-unchecked-exceptions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>There are two big families of exceptions, checked exceptions and unchecked exceptions:</p>
+<ul>
+<li>unchecked exceptions are tipically the result of interal errors and they are often avoidable if the programmer pays attention, also we are not obligated by the compiler to handle them</li>
+<li>checked exceptions are the result of external errors and the compiler forces us to handle them (the compiler &ldquo;checks&rdquo; for unhandled exceptions)</li>
+</ul>
+<p>We can distinguish them by looking at their superclass, checked exceptions extend <code>Exception</code> while unchecked exceptions extend <code>RuntimeException</code>.</p>
+<p>When we throw a checked exception we need to to three things to avoid being screamed at by the compiler:</p>
+<ul>
+<li>the exception must be declared in the called method header with the <code>throws</code> clause</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">close</span>() <span style="color:#66d9ef">throws</span> IOException
+</span></span></code></pre></div><ul>
+<li>the caller cannot ingore this exception so it either need to handle it with a <code>try-catch</code> block or it needs to rethrow it</li>
+</ul>
+<p>(NOTE: the throws clause is compulsory for checked exceptions but it can be also used with unchecked exceptions, in this case though the compiler will not do any checks)</p>
+<h2 id="gracefully-restore-external-resources">Gracefully restore external resources<a href="#gracefully-restore-external-resources" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>After using external resources (connection to DBMS or access to a file) we need to restore them to a normal state even when exceptions are thrown, to do this we use the <code>finally</code> block.</p>
+<p>The <code>finally</code> block is placed after the last <code>catch</code> block and it is always executed:</p>
+<ul>
+<li>it is executed if inside the <code>try</code> block no exceptions are thrown</li>
+<li>it is executed if inside the <code>try</code> block an exception is thrown and it is caught</li>
+<li>it is executed if inside the <code>try</code> block an exception is thrown and it is uncaught</li>
+</ul>
+<p>Sometimes exception can be thrown even inside a <code>finally</code> block, for example when we are closing a file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">finally</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (file <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+</span></span><span style="display:flex;"><span>            file.<span style="color:#a6e22e">close</span>()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (IOException e){
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(e.<span style="color:#a6e22e">printStackTrace</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>in this case there is nothing we can do, we tried our best but we couldn&rsquo;t restore the resource to a normal state.</p>
+<p>From Java 8 onwards a new construct, <code>try-with-resources</code> has been added, this can be used with classes that implement <code>AutoClosable</code>, let&rsquo;s see an example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> (FileWriter f <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FileWriter(<span style="color:#e6db74">&#34;text.txt&#34;</span>)){
+</span></span><span style="display:flex;"><span>    f.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#34;foo&#34;</span>);
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> (IOException e){
+</span></span><span style="display:flex;"><span>    System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(e.<span style="color:#a6e22e">printStackTrace</span>());
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>when this code is run, the expression inside the parenthesis is executed before the <code>try</code> block, if there is an <code>IOException</code> the <code>catch</code> block will handle it otherwise we just write &ldquo;foo&rdquo; to the file; in any case since <code>FileWriter</code> implements <code>AutoClosable</code>, the <code>close()</code> method will be called and any exception thrown by it will be handled automatically without using <code>finally</code>.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h"></span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://enricobdev.github.io/blog/why-does-synthwave-make-us-nostalgic/">
+                <span class="button__text">Why does synthwave make us nostalgic?</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        
+        <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a
+            href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="https://enricobdev.github.io/blog/bundle.min.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

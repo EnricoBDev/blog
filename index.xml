@@ -6,7 +6,123 @@
     <description>Recent content on EnricoBDev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Sep 2025 20:42:00 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Oct 2025 10:21:03 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to handle exceptions in Java</title>
+      <link>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</link>
+      <pubDate>Thu, 16 Oct 2025 10:21:03 +0200</pubDate>
+      
+      <guid>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</guid>
+      <description>&lt;h1 id=&#34;exceptions-in-java&#34;&gt;Exceptions in Java&lt;/h1&gt;
+&lt;h2 id=&#34;what-could-possibly-go-wrong&#34;&gt;What could possibly go wrong?&lt;/h2&gt;
+&lt;p&gt;In the lifetime of an application not everything will go as planned, mistakes will be made both from the user and the programmer but sometimes you will just be unlucky (a random bit flip caused by a cosmic ray will change your game state&amp;hellip; and give a &lt;a href=&#34;https://hackaday.com/2021/02/17/cosmic-ray-flips-bit-assists-mario-64-speedrunner/&#34;&gt;speedrunner a huge timesave&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;We can categorize the sources of error in two groups:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;internal errors, for example the user wants to do a division by zero or a method is called on a null reference&lt;/li&gt;
+&lt;li&gt;external errors, for example a comunication error with a remote DBMS or even an error inside the JVM, for example an &amp;ldquo;Out of memory error&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The OOP way of handling those problems is by handling them outside the normal control flow.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;exceptions-in-java&#34;&gt;Exceptions in Java&lt;/h1&gt;
+&lt;h2 id=&#34;what-could-possibly-go-wrong&#34;&gt;What could possibly go wrong?&lt;/h2&gt;
+&lt;p&gt;In the lifetime of an application not everything will go as planned, mistakes will be made both from the user and the programmer but sometimes you will just be unlucky (a random bit flip caused by a cosmic ray will change your game state&amp;hellip; and give a &lt;a href=&#34;https://hackaday.com/2021/02/17/cosmic-ray-flips-bit-assists-mario-64-speedrunner/&#34;&gt;speedrunner a huge timesave&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;We can categorize the sources of error in two groups:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;internal errors, for example the user wants to do a division by zero or a method is called on a null reference&lt;/li&gt;
+&lt;li&gt;external errors, for example a comunication error with a remote DBMS or even an error inside the JVM, for example an &amp;ldquo;Out of memory error&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The OOP way of handling those problems is by handling them outside the normal control flow.&lt;/p&gt;
+&lt;h2 id=&#34;what-even-is-an-exception&#34;&gt;What even is an exception?&lt;/h2&gt;
+&lt;p&gt;Like everything in Java an exception is an &lt;code&gt;Object&lt;/code&gt; that is used to tell the caller method that there is a problem and it needs to be handled.&lt;/p&gt;
+&lt;p&gt;Here is what happens in detail&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the callee method checks conditions that can create errors&lt;/li&gt;
+&lt;li&gt;it throws an exception if these conditions are true&lt;/li&gt;
+&lt;li&gt;the caller now has to handle the exception&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&amp;rsquo;s see an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;division&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; a, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (b &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 0){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;throw&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; IllegalArgumentException(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Division by zero&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; ((&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt;) a )&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; b;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this case if the divisor &lt;code&gt;b&lt;/code&gt; is zero then an exception is thrown, now the method execution stops and we return to the caller, it can do three things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;prevent the exception: the caller can check beforehand if &lt;code&gt;b == 0&lt;/code&gt;, in this case the exception will not be thrown, if the caller cannot do these checks (because it would be too complex) it can do two things:&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;it can rethrow and propagate the exception to its caller because it does not have enough context or responsibility and it doesn&amp;rsquo;t know how to handle it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;it can catch the exception with a &lt;code&gt;try-catch&lt;/code&gt; block and handle it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You should always try to prevent the exception, because handling exceptions can be computationally expensive and since exceptions do not follow the usual control flow it is harder to program.&lt;/p&gt;
+&lt;h2 id=&#34;the-try-catch-block&#34;&gt;The &lt;code&gt;try-catch&lt;/code&gt; block&lt;/h2&gt;
+&lt;p&gt;As I said we can handle the exception by using a &lt;code&gt;try-catch&lt;/code&gt; block, let&amp;rsquo;s see an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;tryCatch&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; arr &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {1, 2, 3};
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(arr&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;4&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (ArrayIndexOutOfBoundsException e){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Caught an array index error: &amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (Exception e){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Caught a generic exception&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We wrap the code that could throw an exception (in this simple example an exception will surely be thrown) in the &lt;code&gt;try&lt;/code&gt; block, if an exception is actually thrown then the execution of the &lt;code&gt;try&lt;/code&gt; block stops and the code inside the first &lt;code&gt;catch&lt;/code&gt; statement that matches the exception will be executed.&lt;/p&gt;
+&lt;p&gt;The order of the &lt;code&gt;catch&lt;/code&gt; blocks matters, if we want a detailed explanation of what happened we need to put the most generic exception type at the bottom (in this case we put the base class &lt;code&gt;Exception&lt;/code&gt; at the bottom) because otherwise the thrown exception will always be caught with the most generic error message.&lt;/p&gt;
+&lt;h2 id=&#34;checked-and-unchecked-exceptions&#34;&gt;Checked and unchecked exceptions&lt;/h2&gt;
+&lt;p&gt;There are two big families of exceptions, checked exceptions and unchecked exceptions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;unchecked exceptions are tipically the result of interal errors and they are often avoidable if the programmer pays attention, also we are not obligated by the compiler to handle them&lt;/li&gt;
+&lt;li&gt;checked exceptions are the result of external errors and the compiler forces us to handle them (the compiler &amp;ldquo;checks&amp;rdquo; for unhandled exceptions)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We can distinguish them by looking at their superclass, checked exceptions extend &lt;code&gt;Exception&lt;/code&gt; while unchecked exceptions extend &lt;code&gt;RuntimeException&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When we throw a checked exception we need to to three things to avoid being screamed at by the compiler:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the exception must be declared in the called method header with the &lt;code&gt;throws&lt;/code&gt; clause&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;() &lt;span style=&#34;color:#66d9ef&#34;&gt;throws&lt;/span&gt; IOException
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;the caller cannot ingore this exception so it either need to handle it with a &lt;code&gt;try-catch&lt;/code&gt; block or it needs to rethrow it&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(NOTE: the throws clause is compulsory for checked exceptions but it can be also used with unchecked exceptions, in this case though the compiler will not do any checks)&lt;/p&gt;
+&lt;h2 id=&#34;gracefully-restore-external-resources&#34;&gt;Gracefully restore external resources&lt;/h2&gt;
+&lt;p&gt;After using external resources (connection to DBMS or access to a file) we need to restore them to a normal state even when exceptions are thrown, to do this we use the &lt;code&gt;finally&lt;/code&gt; block.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;finally&lt;/code&gt; block is placed after the last &lt;code&gt;catch&lt;/code&gt; block and it is always executed:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it is executed if inside the &lt;code&gt;try&lt;/code&gt; block no exceptions are thrown&lt;/li&gt;
+&lt;li&gt;it is executed if inside the &lt;code&gt;try&lt;/code&gt; block an exception is thrown and it is caught&lt;/li&gt;
+&lt;li&gt;it is executed if inside the &lt;code&gt;try&lt;/code&gt; block an exception is thrown and it is uncaught&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes exception can be thrown even inside a &lt;code&gt;finally&lt;/code&gt; block, for example when we are closing a file:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;finally&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (file &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;null&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            file.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (IOException e){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(e.&lt;span style=&#34;color:#a6e22e&#34;&gt;printStackTrace&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;in this case there is nothing we can do, we tried our best but we couldn&amp;rsquo;t restore the resource to a normal state.&lt;/p&gt;
+&lt;p&gt;From Java 8 onwards a new construct, &lt;code&gt;try-with-resources&lt;/code&gt; has been added, this can be used with classes that implement &lt;code&gt;AutoClosable&lt;/code&gt;, let&amp;rsquo;s see an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; (FileWriter f &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; FileWriter(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text.txt&amp;#34;&lt;/span&gt;)){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    f.&lt;span style=&#34;color:#a6e22e&#34;&gt;write&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt; (IOException e){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(e.&lt;span style=&#34;color:#a6e22e&#34;&gt;printStackTrace&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;when this code is run, the expression inside the parenthesis is executed before the &lt;code&gt;try&lt;/code&gt; block, if there is an &lt;code&gt;IOException&lt;/code&gt; the &lt;code&gt;catch&lt;/code&gt; block will handle it otherwise we just write &amp;ldquo;foo&amp;rdquo; to the file; in any case since &lt;code&gt;FileWriter&lt;/code&gt; implements &lt;code&gt;AutoClosable&lt;/code&gt;, the &lt;code&gt;close()&lt;/code&gt; method will be called and any exception thrown by it will be handled automatically without using &lt;code&gt;finally&lt;/code&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Why does synthwave make us nostalgic?</title>
       <link>https://enricobdev.github.io/blog/why-does-synthwave-make-us-nostalgic/</link>
