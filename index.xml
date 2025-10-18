@@ -82,7 +82,7 @@
 &lt;p&gt;There are two big families of exceptions, checked exceptions and unchecked exceptions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;unchecked exceptions are tipically the result of interal errors and they are often avoidable if the programmer pays attention, also we are not obligated by the compiler to handle them&lt;/li&gt;
-&lt;li&gt;checked exceptions are the result of external errors and the compiler forces us to handle them (the compiler &amp;ldquo;checks&amp;rdquo; for unhandled exceptions)&lt;/li&gt;
+&lt;li&gt;checked exceptions are the result of external errors and the compiler forces us to handle them (the compiler &amp;ldquo;checks&amp;rdquo; for unhandled exceptions), they are a great tool during debugging but in a production environment they shouldn&amp;rsquo;t be ever thrown or caught in a &lt;code&gt;try-catch&lt;/code&gt; block, since they are the result of a programmer error.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We can distinguish them by looking at their superclass, checked exceptions extend &lt;code&gt;Exception&lt;/code&gt; while unchecked exceptions extend &lt;code&gt;RuntimeException&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When we throw a checked exception we need to to three things to avoid being screamed at by the compiler:&lt;/p&gt;
