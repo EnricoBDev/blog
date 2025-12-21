@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>JWT 101 :: EnricoBDev&#39;s Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A simple introduction about JSON Web Tokens" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enricobdev.github.io/blog/jwt-101/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://enricobdev.github.io/blog/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://enricobdev.github.io/blog/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://enricobdev.github.io/blog/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="JWT 101">
+<meta property="og:description" content="A simple introduction about JSON Web Tokens" />
+<meta property="og:url" content="https://enricobdev.github.io/blog/jwt-101/" />
+<meta property="og:site_name" content="EnricoBDev&#39;s Blog" />
+
+  
+    <meta property="og:image" content="https://enricobdev.github.io/blog/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-12-20 16:16:14 &#43;0200 &#43;0200" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="green">
+
+
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="https://enricobdev.github.io/blog/">
+  <div class="logo">
+    EnricoBDev&#39;s Blog
+  </div>
+</a>
+
+    </div>
+    
+    <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/blog/about">About me</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  <div style="margin-top: 1vh;">
+    Provocative, edgy, thought provoking, technically and visually stunning... a website like you&#39;ve never seen it before
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/blog/about" >About me</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enricobdev.github.io/blog/jwt-101/">JWT 101</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-12-20</time><span class="post-author">EnricoBDev</span>
+    
+<span class="post-reading-time">5 min read (876 words)</span></div>
+
+  
+  
+
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#structure">Structure</a>
+      <ul>
+        <li><a href="#header">Header</a></li>
+        <li><a href="#payload">Payload</a></li>
+        <li><a href="#signature">Signature</a></li>
+      </ul>
+    </li>
+    <li><a href="#use">Use</a></li>
+    <li><a href="#conclusions">Conclusions</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <h1 id="jwt-101">JWT 101<a href="#jwt-101" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>JSON Web Token (JWT) is a compact, URL-safe means of representing
+</span></span><span style="display:flex;"><span>claims to be transferred between two parties.  The claims in a JWT
+</span></span><span style="display:flex;"><span>are encoded as a JSON object that is used as the payload of a JSON
+</span></span><span style="display:flex;"><span>Web Signature (JWS) structure or as the plaintext of a JSON Web
+</span></span><span style="display:flex;"><span>Encryption (JWE) structure, enabling the claims to be digitally
+</span></span><span style="display:flex;"><span>signed or integrity protected with a Message Authentication Code
+</span></span><span style="display:flex;"><span>(MAC) and/or encrypted.
+</span></span></code></pre></div><p>This is the abstract of <code>RFC 7519</code>, the document that brought JSON Web Tokens to life.
+There is a lot to unpack in this paragraph so i will explain it in a simpler way:</p>
+<p>A JWT is a compact way of representing data that need to be transferred between two parties, the data is encoded in JSON format and it either digitally signed (with a secret code for symmetric algorithms like HMAC256) or encrypted (with a private key for asymmetric algorithms like RSA).</p>
+<p>The signature is used to prove two things:</p>
+<ul>
+<li>integrity: it proves that the token has not been tampered with, even if a single character has been altered then the signature attached to the token and the signature calculated would not match</li>
+<li>authenticity: it proves that the token has really been sent from who it claims to be sent from, this is achieved by the fact that only the server knows the secret code so nobody else can calculate a new valid signature</li>
+</ul>
+<p>If this sounds too complicated I&rsquo;ll try and explain it with more details next, right now the only thing you need to know is that a JWT is just a fancy JSON object used for information exchange or user authentication.</p>
+<h2 id="structure">Structure<a href="#structure" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A raw JWT is formed like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>xxxxx.yyyyy.zzzzz
+</span></span></code></pre></div><p>There are three Base64 encoded parts separated by a dot:</p>
+<ul>
+<li>header</li>
+<li>payload</li>
+<li>signature</li>
+</ul>
+<h3 id="header">Header<a href="#header" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The header is typically made up of two parts:</p>
+<ul>
+<li>the token type, so JWT</li>
+<li>the algorithm used for signature or encryption, for example HMAC SHA256 or RSA</li>
+</ul>
+<p>Here is an example of a JWT header:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;alg&#34;</span>: <span style="color:#e6db74">&#34;HS256&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;typ&#34;</span>: <span style="color:#e6db74">&#34;JWT&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This JSON object is then Base64 encoded and it is placed as the first field of the JWT.</p>
+<h3 id="payload">Payload<a href="#payload" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The payload is the second part of the JWT and it contains the claims, claims are just informations about the user, there are three different type of claims:</p>
+<ul>
+<li>registered claims: these claims are predifined by <code>RFC 7519</code>, they are not mandatory but recommended, they can be things like <code>exp</code>, the timestamp of token expiry or <code>sub</code>, the subject of this token</li>
+<li>public claims: these can be defined by whoever is using the JWT, but to avoid collision they should be registered to the <a href="https://www.iana.org/assignments/jwt/jwt.xhtml">IANA JWT registry</a> to avoid collisions</li>
+<li>private claims: these are custom claims and they are not registered nor public claims</li>
+</ul>
+<p>The minimal example of what a JWT payload should contain looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;exp&#34;</span>: <span style="color:#ae81ff">1766314986</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;sub&#34;</span>: <span style="color:#e6db74">&#34;user:2315&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The expiry timestamp is really important because when a request with an expired JWT is sent to the server, it will generate a new one. This mechanism is needed to make sure that the attack window for a malicious third party is very short and that even if he was able to intercept a token he wouldn&rsquo;t have the time to use it.</p>
+<p>The JSON object containing the payload is Base64 encoded and added as the second field in the token.</p>
+<h3 id="signature">Signature<a href="#signature" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>To create a signature we just need the header, payload and secret code and calculate the digital signature of that string, if we use HMAC SHA256 we would do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>HMACSHA256(base64UrlEncode(header) + &#34;.&#34; + base64UrlEncode(payload), secret)
+</span></span></code></pre></div><h2 id="use">Use<a href="#use" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Let&rsquo;s now see the authentication flow for a web service that uses JWTs:</p>
+<ol>
+<li>Client logs in with username and password</li>
+<li>The server generates the header, payload and signature</li>
+<li>The token is sent to the client, he will now store the token somewhere safe. Now that the client has aquired the JWT he can use it to authenticate himself.</li>
+<li>The client sends a request to an endpoint that needs authentication, in the HTTP request, the token will be added to the <code>Authorization: Bearer &lt;token&gt;</code> header</li>
+<li>The server receives the request and the token</li>
+<li>The server calculates the token signature and checks if the two signatures (the one sent along with the token and the one calculated right now) match, if they don&rsquo;t an error is sent to the client</li>
+<li>The token is decoded by the server, if it has an expiry timestamp, the server checks if it has expired; if it has then an error is sent to the client</li>
+<li>The client has been authenticated, the request is processed and a response is sent to the client</li>
+</ol>
+<h2 id="conclusions">Conclusions<a href="#conclusions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This article touches the fundamentals about token based authentication, I wanted to write this article since I have been implementing authentication for a new REST-API I&rsquo;m building at the moment, it isn&rsquo;t a very big project and there is no sensitive data exchanged but I still wanted to build something that uses the technologies commonly used in more important and bigger projects, I will give you an update when the first version of this project is out!</p>
+<h2 id="sources">Sources<a href="#sources" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc7519">RFC 7519</a></li>
+<li><a href="https://www.jwt.io/">jwt.io</a>, this is a cool website to thinker around and learn how these token work in practice</li>
+</ul>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h"></span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/">
+                <span class="button__text">How to handle exceptions in Java</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        
+        <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a
+            href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+    </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="https://enricobdev.github.io/blog/bundle.min.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

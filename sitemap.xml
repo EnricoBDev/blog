@@ -3,12 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://enricobdev.github.io/blog/</loc>
-    <lastmod>2025-10-16T10:21:03+02:00</lastmod>
+    <lastmod>2025-12-20T16:16:14+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</loc>
-    <lastmod>2025-10-16T10:21:03+02:00</lastmod>
+    <loc>https://enricobdev.github.io/blog/jwt-101/</loc>
+    <lastmod>2025-12-20T16:16:14+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/posts/</loc>
+    <lastmod>2025-12-20T16:16:14+02:00</lastmod>
+  </url><url>
+    <loc>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</loc>
     <lastmod>2025-10-16T10:21:03+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/why-does-synthwave-make-us-nostalgic/</loc>

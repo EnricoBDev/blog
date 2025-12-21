@@ -6,7 +6,100 @@
     <description>Recent content on EnricoBDev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Oct 2025 10:21:03 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Dec 2025 16:16:14 +0200</lastBuildDate><atom:link href="https://enricobdev.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JWT 101</title>
+      <link>https://enricobdev.github.io/blog/jwt-101/</link>
+      <pubDate>Sat, 20 Dec 2025 16:16:14 +0200</pubDate>
+      
+      <guid>https://enricobdev.github.io/blog/jwt-101/</guid>
+      <description>&lt;h1 id=&#34;jwt-101&#34;&gt;JWT 101&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;JSON Web Token (JWT) is a compact, URL-safe means of representing
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;claims to be transferred between two parties.  The claims in a JWT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;are encoded as a JSON object that is used as the payload of a JSON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Web Signature (JWS) structure or as the plaintext of a JSON Web
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Encryption (JWE) structure, enabling the claims to be digitally
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;signed or integrity protected with a Message Authentication Code
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(MAC) and/or encrypted.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the abstract of &lt;code&gt;RFC 7519&lt;/code&gt;, the document that brought JSON Web Tokens to life.
+There is a lot to unpack in this paragraph so i will explain it in a simpler way:&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;jwt-101&#34;&gt;JWT 101&lt;/h1&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;JSON Web Token (JWT) is a compact, URL-safe means of representing
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;claims to be transferred between two parties.  The claims in a JWT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;are encoded as a JSON object that is used as the payload of a JSON
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Web Signature (JWS) structure or as the plaintext of a JSON Web
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Encryption (JWE) structure, enabling the claims to be digitally
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;signed or integrity protected with a Message Authentication Code
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(MAC) and/or encrypted.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the abstract of &lt;code&gt;RFC 7519&lt;/code&gt;, the document that brought JSON Web Tokens to life.
+There is a lot to unpack in this paragraph so i will explain it in a simpler way:&lt;/p&gt;
+&lt;p&gt;A JWT is a compact way of representing data that need to be transferred between two parties, the data is encoded in JSON format and it either digitally signed (with a secret code for symmetric algorithms like HMAC256) or encrypted (with a private key for asymmetric algorithms like RSA).&lt;/p&gt;
+&lt;p&gt;The signature is used to prove two things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;integrity: it proves that the token has not been tampered with, even if a single character has been altered then the signature attached to the token and the signature calculated would not match&lt;/li&gt;
+&lt;li&gt;authenticity: it proves that the token has really been sent from who it claims to be sent from, this is achieved by the fact that only the server knows the secret code so nobody else can calculate a new valid signature&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If this sounds too complicated I&amp;rsquo;ll try and explain it with more details next, right now the only thing you need to know is that a JWT is just a fancy JSON object used for information exchange or user authentication.&lt;/p&gt;
+&lt;h2 id=&#34;structure&#34;&gt;Structure&lt;/h2&gt;
+&lt;p&gt;A raw JWT is formed like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;xxxxx.yyyyy.zzzzz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There are three Base64 encoded parts separated by a dot:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;header&lt;/li&gt;
+&lt;li&gt;payload&lt;/li&gt;
+&lt;li&gt;signature&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;header&#34;&gt;Header&lt;/h3&gt;
+&lt;p&gt;The header is typically made up of two parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the token type, so JWT&lt;/li&gt;
+&lt;li&gt;the algorithm used for signature or encryption, for example HMAC SHA256 or RSA&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is an example of a JWT header:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;alg&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;HS256&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;typ&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;JWT&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This JSON object is then Base64 encoded and it is placed as the first field of the JWT.&lt;/p&gt;
+&lt;h3 id=&#34;payload&#34;&gt;Payload&lt;/h3&gt;
+&lt;p&gt;The payload is the second part of the JWT and it contains the claims, claims are just informations about the user, there are three different type of claims:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;registered claims: these claims are predifined by &lt;code&gt;RFC 7519&lt;/code&gt;, they are not mandatory but recommended, they can be things like &lt;code&gt;exp&lt;/code&gt;, the timestamp of token expiry or &lt;code&gt;sub&lt;/code&gt;, the subject of this token&lt;/li&gt;
+&lt;li&gt;public claims: these can be defined by whoever is using the JWT, but to avoid collision they should be registered to the &lt;a href=&#34;https://www.iana.org/assignments/jwt/jwt.xhtml&#34;&gt;IANA JWT registry&lt;/a&gt; to avoid collisions&lt;/li&gt;
+&lt;li&gt;private claims: these are custom claims and they are not registered nor public claims&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The minimal example of what a JWT payload should contain looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;exp&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1766314986&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;sub&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;user:2315&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The expiry timestamp is really important because when a request with an expired JWT is sent to the server, it will generate a new one. This mechanism is needed to make sure that the attack window for a malicious third party is very short and that even if he was able to intercept a token he wouldn&amp;rsquo;t have the time to use it.&lt;/p&gt;
+&lt;p&gt;The JSON object containing the payload is Base64 encoded and added as the second field in the token.&lt;/p&gt;
+&lt;h3 id=&#34;signature&#34;&gt;Signature&lt;/h3&gt;
+&lt;p&gt;To create a signature we just need the header, payload and secret code and calculate the digital signature of that string, if we use HMAC SHA256 we would do this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;HMACSHA256(base64UrlEncode(header) + &amp;#34;.&amp;#34; + base64UrlEncode(payload), secret)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;use&#34;&gt;Use&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s now see the authentication flow for a web service that uses JWTs:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Client logs in with username and password&lt;/li&gt;
+&lt;li&gt;The server generates the header, payload and signature&lt;/li&gt;
+&lt;li&gt;The token is sent to the client, he will now store the token somewhere safe. Now that the client has aquired the JWT he can use it to authenticate himself.&lt;/li&gt;
+&lt;li&gt;The client sends a request to an endpoint that needs authentication, in the HTTP request, the token will be added to the &lt;code&gt;Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code&gt; header&lt;/li&gt;
+&lt;li&gt;The server receives the request and the token&lt;/li&gt;
+&lt;li&gt;The server calculates the token signature and checks if the two signatures (the one sent along with the token and the one calculated right now) match, if they don&amp;rsquo;t an error is sent to the client&lt;/li&gt;
+&lt;li&gt;The token is decoded by the server, if it has an expiry timestamp, the server checks if it has expired; if it has then an error is sent to the client&lt;/li&gt;
+&lt;li&gt;The client has been authenticated, the request is processed and a response is sent to the client&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;This article touches the fundamentals about token based authentication, I wanted to write this article since I have been implementing authentication for a new REST-API I&amp;rsquo;m building at the moment, it isn&amp;rsquo;t a very big project and there is no sensitive data exchanged but I still wanted to build something that uses the technologies commonly used in more important and bigger projects, I will give you an update when the first version of this project is out!&lt;/p&gt;
+&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://datatracker.ietf.org/doc/html/rfc7519&#34;&gt;RFC 7519&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jwt.io/&#34;&gt;jwt.io&lt;/a&gt;, this is a cool website to thinker around and learn how these token work in practice&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>How to handle exceptions in Java</title>
       <link>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</link>
