@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://enricobdev.github.io/blog/</loc>
-    <lastmod>2025-12-20T16:16:14+02:00</lastmod>
+    <loc>https://enricobdev.github.io/blog/slug/</loc>
+    <lastmod>2025-12-24T11:38:13+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/jwt-101/</loc>
-    <lastmod>2025-12-20T16:16:14+02:00</lastmod>
+    <loc>https://enricobdev.github.io/blog/</loc>
+    <lastmod>2025-12-24T11:38:13+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/posts/</loc>
+    <lastmod>2025-12-24T11:38:13+02:00</lastmod>
+  </url><url>
+    <loc>https://enricobdev.github.io/blog/jwt-101/</loc>
     <lastmod>2025-12-20T16:16:14+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</loc>
