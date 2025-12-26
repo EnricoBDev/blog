@@ -176,7 +176,7 @@
 <p>I found this URL that looked promising:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/route-2025%2Fsanta_en.json?2021=&amp;alt=media
 </span></span></code></pre></div><p>The URL returns an enormous JSON file, that actually contains a list of coordinates and timestamps with various other informations, I actually found the route!</p>
-<p>To be honest I initially thought that the logic behind this applications was a little more complex, since you don&rsquo;t want a kid to see that Santa is over your house at 2:00 PM on Christmas Eve. The easy fix to this problem is just careful route planning, the developers just needed to input a route that matched the new day line as it moved so that Santa would be in the right place at the exact time.</p>
+<p>To be honest I initially thought that the logic behind this applications was a little more complex, since you don&rsquo;t want a kid to see that Santa is over his house at 2:00 PM on Christmas Eve. The easy fix to this problem is just careful route planning, the developers just needed to input a route that matched the new day line as it moved so that Santa would be in the right place at the exact time.</p>
 <h2 id="building-our-tracker">Building our tracker<a href="#building-our-tracker" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="decoding-the-json">Decoding the JSON<a href="#decoding-the-json" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>The JSON file is just a big list of objects, let&rsquo;s see the one for Rome:</p>
@@ -269,7 +269,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    main()
 </span></span></code></pre></div><p>To make the UI a bit cleaner I added those two print statement with seemingly garbage strings, those are ANSI codes and are interpreted by the terminal as escape sequences to clear the screen, and the <code>try-except</code> statement so that when the user stops the execution with <code>Ctrl+C</code> we don&rsquo;t show an error but just an exit message.</p>
-<p>If you want to just see how it works without copying the code from here, this is the <a href="">project repository</a>, you just need to clone it and run the script with <code>python main.py</code>.</p>
+<p>If you want to just see how it works without copying the code from here, this is the <a href="https://github.com/EnricoBDev/santa-tracker">project repository</a>, you just need to clone it and run the script with <code>python main.py</code>.</p>
 <h2 id="conclusions">Conclusions<a href="#conclusions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>The boredom of the holidays, with the help of memories from my childhood gave me the idea to understand how Google&rsquo;s Santa Tracker works, honestly it&rsquo;s been really fun building this small program and I hope that reading this article will give you the same enjoyment that I had while writing it.</p>
 <p>Merry Christmas and Happy New Year!</p>
