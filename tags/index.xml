@@ -5,6 +5,8 @@
     <link>https://enricobdev.github.io/blog/tags/</link>
     <description>Recent content in Tags on EnricoBDev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://enricobdev.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <managingEditor>enrico@example.com (EnricoBDev)</managingEditor>
+    <webMaster>enrico@example.com (EnricoBDev)</webMaster><atom:link href="https://enricobdev.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

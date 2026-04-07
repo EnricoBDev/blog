@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://enricobdev.github.io/blog/slug/</loc>
-    <lastmod>2025-12-24T11:38:13+02:00</lastmod>
-  </url><url>
     <loc>https://enricobdev.github.io/blog/</loc>
-    <lastmod>2025-12-24T11:38:13+02:00</lastmod>
+    <lastmod>2026-03-30T21:10:00+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/posts/</loc>
+    <lastmod>2026-03-30T21:10:00+02:00</lastmod>
+  </url><url>
+    <loc>https://enricobdev.github.io/blog/posts/gta_v/</loc>
+    <lastmod>2026-03-30T21:10:00+02:00</lastmod>
+  </url><url>
+    <loc>https://enricobdev.github.io/blog/posts/santa_tracker/</loc>
     <lastmod>2025-12-24T11:38:13+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/jwt-101/</loc>
+    <loc>https://enricobdev.github.io/blog/posts/jwt/</loc>
     <lastmod>2025-12-20T16:16:14+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/how-to-handle-exceptions-in-java/</loc>
+    <loc>https://enricobdev.github.io/blog/posts/java_exceptions/</loc>
     <lastmod>2025-10-16T10:21:03+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/why-does-synthwave-make-us-nostalgic/</loc>
+    <loc>https://enricobdev.github.io/blog/posts/syntwave/</loc>
     <lastmod>2025-09-25T20:42:00+02:00</lastmod>
   </url><url>
-    <loc>https://enricobdev.github.io/blog/conditional-logic-in-mips-assembly/</loc>
+    <loc>https://enricobdev.github.io/blog/posts/asm_conditions/</loc>
     <lastmod>2025-09-22T21:20:03+02:00</lastmod>
   </url><url>
     <loc>https://enricobdev.github.io/blog/categories/</loc>

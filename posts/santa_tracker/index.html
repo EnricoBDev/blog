@@ -11,7 +11,7 @@
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="https://enricobdev.github.io/blog/slug/" />
+<link rel="canonical" href="https://enricobdev.github.io/blog/posts/santa_tracker/" />
 
 
 
@@ -45,7 +45,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Building a Santa tracker">
 <meta property="og:description" content="Wishing everyone a Merry Christmas with some reverse-engineering" />
-<meta property="og:url" content="https://enricobdev.github.io/blog/slug/" />
+<meta property="og:url" content="https://enricobdev.github.io/blog/posts/santa_tracker/" />
 <meta property="og:site_name" content="EnricoBDev&#39;s Blog" />
 
   
@@ -134,7 +134,7 @@
     
 <article class="post">
   <h1 class="post-title">
-    <a href="https://enricobdev.github.io/blog/slug/">Building a Santa tracker</a>
+    <a href="https://enricobdev.github.io/blog/posts/santa_tracker/">Building a Santa tracker</a>
   </h1>
   <div class="post-meta"><time class="post-date">2025-12-24</time><span class="post-author">EnricoBDev</span>
     
@@ -174,13 +174,13 @@
 <p>The first thing I did was searching for a Wikipedia article about it, and I actually found it! The crazy thing I found out is that the code for the website is on <a href="https://github.com/google/santa-tracker-web">Github</a>.</p>
 <p>I looked into the repository and I found a <code>firebase.js</code> with some configuration settings, from there I decided that it was much easier to use the browser devtools and just look for network traffic from Firebase.</p>
 <p>I found this URL that looked promising:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/route-2025%2Fsanta_en.json?2021=&amp;alt=media
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/route-2025%2Fsanta_en.json?2021=&amp;alt=media
 </span></span></code></pre></div><p>The URL returns an enormous JSON file, that actually contains a list of coordinates and timestamps with various other informations, I actually found the route!</p>
 <p>To be honest I initially thought that the logic behind this applications was a little more complex, since you don&rsquo;t want a kid to see that Santa is over his house at 2:00 PM on Christmas Eve. The easy fix to this problem is just careful route planning, the developers just needed to input a route that matched the new day line as it moved so that Santa would be in the right place at the exact time.</p>
 <h2 id="building-our-tracker">Building our tracker<a href="#building-our-tracker" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="decoding-the-json">Decoding the JSON<a href="#decoding-the-json" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>The JSON file is just a big list of objects, let&rsquo;s see the one for Rome:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;rome&#34;</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#75715e">// the object id is just the city name in lowercase
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;rome&#34;</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#75715e">// the object id is just the city name in lowercase
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;arrival&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">1577226180000</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#75715e">// time of arrival in unix timestamp
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;departure&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">1577226240000</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#75715e">// time of departure in unix timestamp
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;population&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#ae81ff">2318895</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#75715e">// city population
@@ -195,23 +195,23 @@
 </span></span></span></code></pre></div><p>The structure is pretty simple, the only problem I saw is that those timestamps are stuck in 2019, so we will need to account for this in the script.</p>
 <p>Since it would be really wasteful to make a request to that URL every time we are going to run our script, we can download the JSON file and put it in the same directory as the script.</p>
 <p>Let&rsquo;s now start writing the program, first of all we will need a couple of imports from the Python standard library:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime, timezone
 </span></span></code></pre></div><p>We need the <code>json</code> library to decode the JSON file and the <code>time</code> and <code>datetime</code> libraries to get the current time and do some &ldquo;space-time bending&rdquo; stuff to account for the mismatching date in the JSON.</p>
 <p>To make the code a bit more readable we can define two constants:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>JSON_TIMESTAMP_YEAR <span style="color:#f92672">=</span> <span style="color:#ae81ff">2019</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>JSON_TIMESTAMP_YEAR <span style="color:#f92672">=</span> <span style="color:#ae81ff">2019</span>
 </span></span><span style="display:flex;"><span>FILENAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;route.json&#34;</span>
 </span></span></code></pre></div><p><code>JSON_TIMESTAMP_YEAR</code> actually matches the year of the timestamps inside the JSON, and the <code>FILENAME</code> constant is just the path for the JSON file.</p>
 <p>Now we are going to write a function that will change the current UNIX epoch timestamp, so that the time (hours, minutes and seconds) is the same but the date will be Christmas eve of 2019:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_christmas_eve_timestamp</span>(year: int) <span style="color:#f92672">-&gt;</span> int:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_christmas_eve_timestamp</span>(year: int) <span style="color:#f92672">-&gt;</span> int:
 </span></span><span style="display:flex;"><span>    now_utc <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now(timezone<span style="color:#f92672">.</span>utc)
 </span></span><span style="display:flex;"><span>    target_date <span style="color:#f92672">=</span> now_utc<span style="color:#f92672">.</span>replace(year<span style="color:#f92672">=</span>year, month<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, day<span style="color:#f92672">=</span><span style="color:#ae81ff">24</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> int(target_date<span style="color:#f92672">.</span>timestamp()) <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> 
 </span></span></code></pre></div><p>You may notice in the last line that we multiply the timestamp times 1000, that&rsquo;s because the <code>.timestamp()</code> method returns a float with the integer part equals to the number of seconds since January 1st 1970 and the real part is the amount of milliseconds that passed since that date, and the JSON file actually includes the milliseconds in the integer part of the timestamp.</p>
 <p>Note: from now on I will refer to the current timestamp as the return value from this function.</p>
 <p>Of course we need to parse the JSON file, so here is another helper function to do just that:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_route_json</span>() <span style="color:#f92672">-&gt;</span> list:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_route_json</span>() <span style="color:#f92672">-&gt;</span> list:
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">with</span> open(FILENAME, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> file:
 </span></span><span style="display:flex;"><span>        dict <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>load(file)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> dict[<span style="color:#e6db74">&#34;destinations&#34;</span>]
@@ -224,7 +224,7 @@
 <li>Santa has finished his trip, the current timestamp is greater than the last object&rsquo;s <code>departure</code> timestamp</li>
 </ul>
 <p>So with that in mind we can write a function that will return a string with Santa&rsquo;s status given the route and the current timestamp:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_santa_status</span>(current_time, route) <span style="color:#f92672">-&gt;</span> str:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_santa_status</span>(current_time, route) <span style="color:#f92672">-&gt;</span> str:
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Case 1: Santa hasn&#39;t started</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> current_time <span style="color:#f92672">&lt;</span> route[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#34;arrival&#34;</span>]:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Santa is sleeping at the North Pole.&#34;</span>
@@ -246,7 +246,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Case 4: Santa has finished</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;🎅 Santa has finished his run! Back at North Pole.&#34;</span>
 </span></span></code></pre></div><p>Finally we need to put everything together, we will have a loop that checks for updates every 30 seconds, since from what I saw the minimum distance between timestamps is 1 minute:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
 </span></span><span style="display:flex;"><span>    route_data <span style="color:#f92672">=</span> read_route_json()
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span>:
@@ -290,9 +290,16 @@
     </div>
     <div class="pagination__buttons">
         
+        <span class="button previous">
+            <a href="https://enricobdev.github.io/blog/posts/gta_v/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Why GTA V is the best satire for the capitalist economy</span>
+            </a>
+        </span>
+        
         
         <span class="button next">
-            <a href="https://enricobdev.github.io/blog/jwt-101/">
+            <a href="https://enricobdev.github.io/blog/posts/jwt/">
                 <span class="button__text">JWT 101</span>
                 <span class="button__icon">→</span>
             </a>
@@ -316,7 +323,7 @@
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
         
         <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a
             href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
