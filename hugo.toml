@@ -6,15 +6,8 @@ theme = "re-terminal"
 relativeURLs = false
 canonifyURLs = false
 
-[permalinks]
-posts = "/:slug/"
-
-
-[frontmatter]
-  date = ["date", "publishDate"]
-
-
 [params]
+  author = { name = "EnricoBDev", email = "enrico@example.com" }
   subtitle = "Provocative, edgy, thought provoking, technically and visually stunning... a website like you've never seen it before"
 
 
